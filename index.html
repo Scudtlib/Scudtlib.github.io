@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web of Science 課程前後測</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        /* 自定義滾動條樣式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div id="app" class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+
+        <!-- 首頁 -->
+        <div id="home-page" class="text-center space-y-8 fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Web of Science 利用教育課程</h1>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程前測</h2>
+                    <p class="text-gray-600 mb-6">在課程開始前，請先完成此份測驗，幫助我們了解您對資料庫的既有認識。</p>
+                    <button onclick="showPage('pre-test-page')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
+                        開始前測
+                    </button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程後測 & 滿意度調查</h2>
+                    <p class="text-gray-600 mb-6">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
+                    <button onclick="promptForCode('post-test')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
+                        開始後測
+                    </button>
+                </div>
+            </div>
+             <div class="mt-8">
+                <button onclick="promptForCode('admin')" class="text-sm text-gray-500 hover:text-blue-600">管理員登入查看結果</button>
+            </div>
+        </div>
+
+        <!-- 前測頁面 -->
+        <div id="pre-test-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">課程前測</h1>
+                <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
+                    <p>各位師長、同學大家好，</p>
+                    <p>歡迎您參與圖書館舉辦之利用教育課程。這份前測主要目的是想要瞭解大家在這門課程前對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                    <div class="text-right pt-2">
+                        <p>圖書館 敬上</p>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="pre-test-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 <span class="text-red-500">*</span></label>
+                    <input type="text" id="pre-test-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <form id="pre-test-form" class="space-y-8"></form>
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                    <button onclick="submitPreTest()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">提交</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 後測與滿意度調查頁面 -->
+        <div id="post-test-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">課程後測 & 滿意度調查</h1>
+                <div class="bg-green-50 border-l-4 border-green-400 text-green-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
+                     <p>各位師長、同學大家好，</p>
+                     <p>歡迎您參與圖書館舉辦之利用教育課程。這份後測主要目的是想要瞭解大家在這門課程後對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                     <div class="text-right pt-2">
+                         <p>圖書館 敬上</p>
+                     </div>
+                </div>
+
+                <!-- 後測題目 -->
+                <h2 class="text-xl font-bold text-gray-800 mt-8 mb-4 border-b pb-2">第一部分：課程後測</h2>
+                <div class="mb-6">
+                    <label for="post-test-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 <span class="text-red-500">*</span></label>
+                    <input type="text" id="post-test-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                </div>
+                <form id="post-test-form" class="space-y-8"></form>
+
+                <!-- 滿意度調查 -->
+                <h2 class="text-xl font-bold text-gray-800 mt-12 mb-4 border-b pb-2">第二部分：滿意度調查</h2>
+                <form id="satisfaction-form" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
+                            <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
+                            <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>大學部</option>
+                                <option>碩士生</option>
+                                <option>博士生</option>
+                                <option>教師</option>
+                                <option>職員</option>
+                                <option>其它</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
+                            <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>人社院</option>
+                                <option>外國語文學院</option>
+                                <option>理學院</option>
+                                <option>法學院</option>
+                                <option>商學院</option>
+                                <option>巨量資料管理學院</option>
+                                <option>行政單位</option>
+                                <option>其它</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
+                            <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
+                            <span>非常不同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常同意</span>
+                        </div>
+                    </div>
+                     <div class="bg-gray-50 p-4 rounded-lg">
+                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
+                            <span>非常不同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常同意</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">3. 對於本次課程，您有任何建議或想分享的心得嗎?</label>
+                        <textarea id="feedback" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">4. 您下次希望參加的課程內容為何?</label>
+                        <textarea id="future-topics" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
+                    </div>
+                </form>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                    <button onclick="submitPostTest()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">提交</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 結果頁面 -->
+        <div id="results-page" class="hidden fade-in">
+             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">後測結果與解答</h1>
+                <div id="results-container" class="space-y-6"></div>
+                <div class="mt-8 text-center">
+                    <button onclick="showPage('home-page')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">返回首頁</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 管理員頁面 -->
+        <div id="admin-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">管理員後台 - 測驗結果</h1>
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                </div>
+                
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-blue-600 mb-3">前測結果</h2>
+                    <div class="flex gap-4 mb-3">
+                        <button onclick="fetchResults('pre-test-submissions')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">載入前測資料</button>
+                        <button onclick="downloadCSV('pre-test-table')" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">下載 CSV</button>
+                    </div>
+                    <div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
+                        <table id="pre-test-table" class="w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">提交時間</th>
+                                    <th scope="col" class="px-4 py-3">學號/代碼</th>
+                                    <th scope="col" class="px-4 py-3">答對題數</th>
+                                    <th scope="col" class="px-4 py-3">Q1</th>
+                                    <th scope="col" class="px-4 py-3">Q2</th>
+                                    <th scope="col" class="px-4 py-3">Q3</th>
+                                    <th scope="col" class="px-4 py-3">Q4</th>
+                                    <th scope="col" class="px-4 py-3">Q5</th>
+                                    <th scope="col" class="px-4 py-3">Q6</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pre-test-results-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-green-600 mb-3">後測與滿意度結果</h2>
+                     <div class="flex gap-4 mb-3">
+                        <button onclick="fetchResults('post-test-submissions')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">載入後測資料</button>
+                        <button onclick="downloadCSV('post-test-table')" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">下載 CSV</button>
+                    </div>
+                    <div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
+                        <table id="post-test-table" class="w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">提交時間</th>
+                                    <th scope="col" class="px-4 py-3">學號/代碼</th>
+                                    <th scope="col" class="px-4 py-3">答對題數</th>
+                                    <th scope="col" class="px-4 py-3">Q1</th>
+                                    <th scope="col" class="px-4 py-3">Q2</th>
+                                    <th scope="col" class="px-4 py-3">Q3</th>
+                                    <th scope="col" class="px-4 py-3">Q4</th>
+                                    <th scope="col" class="px-4 py-3">Q5</th>
+                                    <th scope="col" class="px-4 py-3">Q6</th>
+                                    <th scope="col" class="px-4 py-3">性別</th>
+                                    <th scope="col" class="px-4 py-3">身分</th>
+                                    <th scope="col" class="px-4 py-3">學院/單位</th>
+                                    <th scope="col" class="px-4 py-3">系所</th>
+                                    <th scope="col" class="px-4 py-3">滿意度1</th>
+                                    <th scope="col" class="px-4 py-3">滿意度2</th>
+                                    <th scope="col" class="px-4 py-3">建議</th>
+                                    <th scope="col" class="px-4 py-3">未來主題</th>
+                                </tr>
+                            </thead>
+                            <tbody id="post-test-results-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-bold text-gray-700 mb-3">前後測題目與解答資料庫</h2>
+                    <p class="text-sm text-gray-600 mb-3">您可以直接複製下方的文字，這包含了所有題目、選項與正確答案。</p>
+                    <div class="bg-gray-100 border border-gray-300 text-gray-800 p-4 rounded-lg text-sm overflow-x-auto">
+                        <pre id="questions-db"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 訊息提示框 -->
+        <div id="message-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+            <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <div class="mt-3 text-center">
+                    <div id="modal-icon" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                         <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 id="modal-title" class="text-lg leading-6 font-medium text-gray-900 mt-2">成功!</h3>
+                    <div class="mt-2 px-7 py-3">
+                        <p id="modal-message" class="text-sm text-gray-500"></p>
+                    </div>
+                    <div class="items-center px-4 py-3">
+                        <button id="modal-close-button" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            關閉
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 驗證碼輸入框 -->
+        <div id="prompt-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+            <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <div class="mt-3">
+                    <h3 id="prompt-title" class="text-lg leading-6 font-medium text-gray-900 text-center"></h3>
+                    <div class="mt-4">
+                        <input type="password" id="prompt-input" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="請輸入代碼...">
+                        <p id="prompt-error" class="text-red-500 text-xs italic mt-2 hidden">代碼錯誤，請重試。</p>
+                    </div>
+                    <div class="items-center px-4 py-3 mt-4 flex justify-end space-x-2">
+                        <button id="prompt-cancel-button" class="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md shadow-sm hover:bg-gray-300 focus:outline-none">取消</button>
+                        <button id="prompt-ok-button" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-600 focus:outline-none">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module">
+        // 匯入 Firebase 模組
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        // Firebase 配置
+        // 這些變數將由 Canvas 環境在執行時提供
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-wos-quiz';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // 初始化 Firebase
+        let app, db, auth;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            // 根據環境提供的 token 進行登入
+            if (initialAuthToken) {
+                await signInWithCustomToken(auth, initialAuthToken);
+            } else {
+                await signInAnonymously(auth);
+            }
+        } catch (error) {
+            console.error("Firebase 初始化失敗:", error);
+            // 在畫面上顯示錯誤訊息，避免應用程式完全無法使用
+            document.body.innerHTML = `<div class="p-8 text-center text-red-600 bg-red-100">Firebase 初始化失敗，應用程式無法載入。請檢查控制台以獲取更多資訊。</div>`;
+        }
+
+        // --- 題目資料庫 ---
+        const questions = [
+            {
+                question: "1. 當你想用自然語言詢問「永續城市」(sustainable city) 的相關研究概念，並快速獲得文獻摘要與重點整理時，應該優先使用哪個功能？",
+                options: [
+                    "Research Assistant",
+                    "引用文獻報告 (Citation Report)",
+                    "進階檢索 (Advanced Search)",
+                    "作者檢索 (Researcher Search)"
+                ],
+                answer: "Research Assistant"
+            },
+            {
+                question: "2. 王同學想知道 2010 年發表的一篇經典論文，在之後被哪些新的研究引用了，他應該點擊該論文頁面的哪個連結？",
+                options: [
+                    "引用文獻 (Times Cited)",
+                    "被引參考文獻 (Cited References)",
+                    "相關記錄 (Related Records)",
+                    "分析結果 (Analyze Results)"
+                ],
+                answer: "引用文獻 (Times Cited)"
+            },
+            {
+                question: "3. 為了縮小檢索範圍，李同學只想看近五年內發表的「評述文章 (Review Article)」，他應該如何操作？",
+                options: [
+                    "使用快速篩選與限縮功能",
+                    "建立引用文獻追蹤",
+                    "查看引用文獻報告",
+                    "直接在檢索框輸入 \"Review Article\""
+                ],
+                answer: "使用快速篩選與限縮功能"
+            },
+            {
+                question: "4. 陳老師想了解「人工智慧」主題中，哪個國家或機構的發表量最多，以便尋找合作對象。她應該使用哪個功能？",
+                options: [
+                    "分析結果 (Analyze Results)",
+                    "研究人員檢索 (Researcher Search)",
+                    "期刊引用報告 (Journal Citation Reports)",
+                    "建立追蹤 (Create Alert)"
+                ],
+                answer: "分析結果 (Analyze Results)"
+            },
+            {
+                question: "5. 林同學想評估「基因編輯」這個研究主題近十年來的整體影響力，例如總發表趨勢與被引用狀況，哪個工具最適合？",
+                options: [
+                    "引用文獻報告 (Citation Report)",
+                    "分析結果 (Analyze Results)",
+                    "作者影響力光束圖 (Author Impact Beamplot)",
+                    "研究助理 (Research Assistant)"
+                ],
+                answer: "引用文獻報告 (Citation Report)"
+            },
+            {
+                question: "6. 為了不錯過特定領域頂尖學者 (例如：Dr. Chen) 的最新發表，你應該使用 WOS 的哪個功能來自動接收通知？",
+                options: [
+                    "建立追蹤 (Create Alert)",
+                    "檢視作者個人檔案",
+                    "相關記錄 (Related Records)",
+                    "下載引用文獻報告"
+                ],
+                answer: "建立追蹤 (Create Alert)"
+            }
+        ];
+
+        // --- 全域變數與狀態管理 ---
+        let currentPage = 'home-page';
+        let userPostTestAnswers = {};
+
+        // --- 核心功能 ---
+
+        // 頁面切換邏輯
+        window.showPage = (pageId) => {
+            document.getElementById(currentPage).classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+            currentPage = pageId;
+            window.scrollTo(0, 0);
+
+            if (pageId === 'pre-test-page') {
+                renderQuestions('pre-test-form', false);
+            } else if (pageId === 'post-test-page') {
+                renderQuestions('post-test-form', true);
+            } else if (pageId === 'admin-page') {
+                renderQuestionBank();
+            }
+        };
+
+        // 渲染題目
+        function renderQuestions(formId, shuffle) {
+            const form = document.getElementById(formId);
+            form.innerHTML = '';
+            questions.forEach((q, index) => {
+                const questionBlock = document.createElement('div');
+                questionBlock.className = 'border border-gray-200 p-4 sm:p-6 rounded-lg bg-white';
+                
+                const questionText = document.createElement('p');
+                questionText.className = 'font-semibold mb-4 text-gray-700';
+                questionText.textContent = q.question;
+                questionBlock.appendChild(questionText);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.className = 'space-y-3';
+                
+                let options = [...q.options];
+                if (shuffle) {
+                    // Fisher-Yates shuffle algorithm
+                    for (let i = options.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [options[i], options[j]] = [options[j], options[i]];
+                    }
+                }
+
+                options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.className = 'flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer transition duration-200';
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `question-${index}`;
+                    radio.value = option;
+                    radio.className = 'h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300';
+                    const span = document.createElement('span');
+                    span.textContent = option;
+                    span.className = 'ml-3 text-gray-700';
+                    label.appendChild(radio);
+                    label.appendChild(span);
+                    optionsContainer.appendChild(label);
+                });
+                
+                questionBlock.appendChild(optionsContainer);
+                form.appendChild(questionBlock);
+            });
+        }
+        
+        // 計算分數
+        function calculateScore(answers) {
+            let score = 0;
+            questions.forEach((q, index) => {
+                if (answers[`q${index+1}`] === q.answer) {
+                    score++;
+                }
+            });
+            return `${score}/${questions.length}`;
+        }
+
+        // 提交前測
+        window.submitPreTest = async () => {
+            const userId = document.getElementById('pre-test-user-id').value.trim();
+             if (!userId) {
+                showMessage('錯誤', '請填寫您的學號或人事代碼。', 'error');
+                return;
+            }
+
+            const form = document.getElementById('pre-test-form');
+            const answers = {};
+            let allAnswered = true;
+            for (let i = 0; i < questions.length; i++) {
+                const selected = form.querySelector(`input[name="question-${i}"]:checked`);
+                if (selected) {
+                    answers[`q${i+1}`] = selected.value;
+                } else {
+                    allAnswered = false;
+                    break;
+                }
+            }
+
+            if (!allAnswered) {
+                showMessage('錯誤', '請回答所有問題後再提交。', 'error');
+                return;
+            }
+            
+            const score = calculateScore(answers);
+
+            try {
+                const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
+                await addDoc(collection(db, collectionPath), {
+                    userId: userId,
+                    answers: answers,
+                    score: score,
+                    submittedAt: Timestamp.now()
+                });
+                showMessage('成功', '前測已成功提交！感謝您的參與。');
+                showPage('home-page');
+            } catch (error) {
+                console.error("寫入 Firestore 失敗: ", error);
+                showMessage('錯誤', '提交失敗，請稍後再試。', 'error');
+            }
+        };
+
+        // 提交後測
+        window.submitPostTest = async () => {
+            const userId = document.getElementById('post-test-user-id').value.trim();
+            if (!userId) {
+                showMessage('錯誤', '請填寫您的學號或人事代碼。', 'error');
+                return;
+            }
+
+            const form = document.getElementById('post-test-form');
+            const answers = {};
+            let allAnswered = true;
+            for (let i = 0; i < questions.length; i++) {
+                const selected = form.querySelector(`input[name="question-${i}"]:checked`);
+                if (selected) {
+                    answers[`q${i+1}`] = selected.value;
+                } else {
+                    allAnswered = false;
+                    break;
+                }
+            }
+
+            if (!allAnswered) {
+                showMessage('錯誤', '請回答所有測驗問題後再提交。', 'error');
+                return;
+            }
+            
+            userPostTestAnswers = answers; // 儲存使用者答案以供結果頁面使用
+            const score = calculateScore(answers);
+
+            const satisfactionData = {
+                gender: document.getElementById('gender').value,
+                status: document.getElementById('status').value,
+                college: document.getElementById('college').value,
+                department: document.getElementById('department').value,
+                satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
+                satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
+                feedback: document.getElementById('feedback').value,
+                futureTopics: document.getElementById('future-topics').value,
+            };
+
+            try {
+                const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
+                await addDoc(collection(db, collectionPath), {
+                    userId: userId,
+                    answers: answers,
+                    score: score,
+                    satisfaction: satisfactionData,
+                    submittedAt: Timestamp.now()
+                });
+                renderResults();
+                showPage('results-page');
+            } catch (error) {
+                console.error("寫入 Firestore 失敗: ", error);
+                showMessage('錯誤', '提交失敗，請稍後再試。', 'error');
+            }
+        };
+        
+        // 渲染結果頁面
+        function renderResults() {
+            const container = document.getElementById('results-container');
+            container.innerHTML = '';
+            questions.forEach((q, index) => {
+                const userAnswer = userPostTestAnswers[`q${index+1}`];
+                const correctAnswer = q.answer;
+                const isCorrect = userAnswer === correctAnswer;
+
+                const resultBlock = document.createElement('div');
+                resultBlock.className = `p-4 rounded-lg border-l-4 ${isCorrect ? 'bg-green-50 border-green-500' : 'bg-red-50 border-red-500'}`;
+                
+                resultBlock.innerHTML = `
+                    <p class="font-bold text-gray-800 mb-2">${q.question}</p>
+                    <p class="text-sm ${isCorrect ? 'text-green-700' : 'text-red-700'}">您的答案：${userAnswer || '未作答'}</p>
+                    <p class="text-sm text-blue-700">正確答案：${correctAnswer}</p>
+                `;
+                container.appendChild(resultBlock);
+            });
+        }
+
+        // --- 管理員功能 ---
+        
+        // 從 Firestore 獲取結果
+        window.fetchResults = async (collectionName) => {
+            const isPreTest = collectionName === 'pre-test-submissions';
+            const tableBodyId = isPreTest ? 'pre-test-results-body' : 'post-test-results-body';
+            const tableBody = document.getElementById(tableBodyId);
+            const colspan = isPreTest ? 9 : 17;
+            tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
+
+            try {
+                const collectionPath = `artifacts/${appId}/public/data/${collectionName}`;
+                const q = query(collection(db, collectionPath), orderBy("submittedAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">目前沒有任何提交記錄。</td></tr>`;
+                    return;
+                }
+                
+                tableBody.innerHTML = ''; // 清空表格
+                
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    const submittedAt = data.submittedAt.toDate().toLocaleString('zh-TW');
+                    const row = document.createElement('tr');
+                    row.className = 'bg-white border-b hover:bg-gray-50';
+
+                    if (isPreTest) {
+                        row.innerHTML = `
+                            <td class="px-4 py-2">${submittedAt}</td>
+                            <td class="px-4 py-2">${data.userId || ''}</td>
+                            <td class="px-4 py-2 font-bold">${data.score || 'N/A'}</td>
+                            ${questions.map((_, i) => `<td class="px-4 py-2">${data.answers[`q${i+1}`] || ''}</td>`).join('')}
+                        `;
+                    } else {
+                         row.innerHTML = `
+                            <td class="px-4 py-2">${submittedAt}</td>
+                            <td class="px-4 py-2">${data.userId || ''}</td>
+                            <td class="px-4 py-2 font-bold">${data.score || 'N/A'}</td>
+                            ${questions.map((_, i) => `<td class="px-4 py-2">${data.answers[`q${i+1}`] || ''}</td>`).join('')}
+                            <td class="px-4 py-2">${data.satisfaction.gender || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.status || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.college || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.department || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.satisfaction1 || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.satisfaction2 || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.feedback || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.futureTopics || ''}</td>
+                        `;
+                    }
+                    tableBody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error(`從 ${collectionName} 讀取資料失敗:`, error);
+                tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4 text-red-500">讀取資料失敗。</td></tr>`;
+            }
+        };
+
+        // 下載 CSV
+        window.downloadCSV = (tableId) => {
+            const table = document.getElementById(tableId);
+            if (!table.querySelector('tbody tr') || table.querySelector('tbody tr td').colSpan > 1) {
+                showMessage('提示', '沒有可下載的資料。', 'error');
+                return;
+            }
+
+            let csv = [];
+            // 獲取表頭
+            const headers = Array.from(table.querySelectorAll('thead th')).map(header => `"${header.innerText.replace(/"/g, '""')}"`);
+            csv.push(headers.join(','));
+
+            // 獲取表格內容
+            table.querySelectorAll('tbody tr').forEach(row => {
+                const rowData = Array.from(row.querySelectorAll('td')).map((cell, index) => {
+                    const cellText = cell.innerText.replace(/"/g, '""').replace(/\n/g, ' ');
+                    
+                    // The score column is the 3rd column (index 2).
+                    // We check if it's this column and if it contains a '/' to format it specially.
+                    if (index === 2 && cellText.includes('/')) {
+                        // Prepending a tab character (\t) forces spreadsheet software to treat the value as text,
+                        // preventing automatic conversion to a date.
+                        return `"\t${cellText}"`;
+                    }
+                    
+                    // For all other cells, just enclose in quotes.
+                    return `"${cellText}"`;
+                });
+                csv.push(rowData.join(','));
+            });
+
+            const csvString = csv.join('\n');
+            const blob = new Blob([`\uFEFF${csvString}`], { type: 'text/csv;charset=utf-8;' }); // \uFEFF for BOM
+            
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            const fileName = tableId === 'pre-test-table' ? 'pre-test-results.csv' : 'post-test-results.csv';
+            link.setAttribute('download', fileName);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+        
+        // 渲染純文字題庫
+        function renderQuestionBank() {
+            let textContent = '';
+            questions.forEach((q, index) => {
+                textContent += `問題 ${index + 1}: ${q.question}\n`;
+                q.options.forEach(opt => {
+                    textContent += `- ${opt}\n`;
+                });
+                textContent += `正確答案: ${q.answer}\n`;
+                textContent += '--------------------------------------------------\n\n';
+            });
+            document.getElementById('questions-db').textContent = textContent;
+        }
+        
+        // --- UI 輔助功能 ---
+
+        // 顯示訊息提示框
+        function showMessage(title, message, type = 'success') {
+            const modal = document.getElementById('message-modal');
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-message').textContent = message;
+            
+            const iconContainer = document.getElementById('modal-icon');
+            if (type === 'error') {
+                iconContainer.className = 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            } else {
+                iconContainer.className = 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        // 關閉訊息提示框
+        document.getElementById('modal-close-button').addEventListener('click', () => {
+            document.getElementById('message-modal').classList.add('hidden');
+        });
+
+        // 顯示驗證碼輸入框
+        window.promptForCode = (type) => {
+            const modal = document.getElementById('prompt-modal');
+            const title = document.getElementById('prompt-title');
+            const input = document.getElementById('prompt-input');
+            const error = document.getElementById('prompt-error');
+            const okButton = document.getElementById('prompt-ok-button');
+            
+            input.value = '';
+            error.classList.add('hidden');
+
+            if (type === 'post-test') {
+                title.textContent = '請輸入後測作答代碼';
+                okButton.onclick = () => checkCode('post-test');
+            } else if (type === 'admin') {
+                title.textContent = '請輸入管理員密碼';
+                okButton.onclick = () => checkCode('admin');
+            }
+            
+            modal.classList.remove('hidden');
+            input.focus();
+        };
+
+        // 驗證代碼
+        function checkCode(type) {
+            const input = document.getElementById('prompt-input');
+            const error = document.getElementById('prompt-error');
+            const code = input.value;
+            let correctCode, targetPage;
+
+            if (type === 'post-test') {
+                correctCode = 'WOS2025';
+                targetPage = 'post-test-page';
+            } else if (type === 'admin') {
+                correctCode = 'admin123';
+                targetPage = 'admin-page';
+            }
+
+            if (code === correctCode) {
+                document.getElementById('prompt-modal').classList.add('hidden');
+                showPage(targetPage);
+            } else {
+                error.classList.remove('hidden');
+            }
+        }
+        
+        // 關閉驗證碼輸入框
+        document.getElementById('prompt-cancel-button').addEventListener('click', () => {
+            document.getElementById('prompt-modal').classList.add('hidden');
+        });
+        document.getElementById('prompt-input').addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                document.getElementById('prompt-ok-button').click();
+            }
+        });
+
+
+        // 初始載入
+        window.onload = () => {
+            showPage('home-page');
+        };
+    </script>
+</body>
+</html>
