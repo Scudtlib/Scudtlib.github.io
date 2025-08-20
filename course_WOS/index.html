@@ -376,6 +376,8 @@
 </div>
 </div>
 <script src="./config.js"></script>
+<script id="course-id-declare">window.__course_id = "course_WOS";</script>
+
 <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -579,7 +581,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
-                await addDoc(collection(db, collectionPath), {
+                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -635,7 +637,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
-                await addDoc(collection(db, collectionPath), {
+                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
                     userId: userId,
                     answers: answers,
                     score: score,
