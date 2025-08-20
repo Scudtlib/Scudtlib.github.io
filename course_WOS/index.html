@@ -324,7 +324,10 @@
 
     </div>
 
-    <script type="module">
+    
+  <!-- 課程代號：每門課只改這一行 -->
+  <script id="course-id-declare">window.__course_id = "course_WOS";</script>
+<script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
