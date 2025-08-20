@@ -32,6 +32,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
+
+<style>
+  .illustration-wrapper {
+    max-width: 120px;  /* 桌機預設 */
+  }
+  @media (max-width: 640px) {
+    .illustration-wrapper {
+      max-width: 70px; /* 手機縮小 */
+    }
+  }
+</style>
+
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -42,8 +54,8 @@
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                 
                 <!-- 可愛插圖 (尺寸已縮小) -->
-                <div class="mx-auto mb-3" style="max-width:120px;">
-                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                <div class="w-full max-w-56 mx-auto mb-6">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 140 Q 50 110 100 120 T 190 130" fill="none" stroke="#a7f3d0" stroke-width="2"/>
                         <path d="M5 130 Q 55 100 105 110 T 195 120" fill="none" stroke="#bae6fd" stroke-width="2"/>
                         <circle cx="40" cy="90" r="20" fill="#fde68a"/>
