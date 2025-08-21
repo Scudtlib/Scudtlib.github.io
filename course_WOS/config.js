@@ -1,7 +1,7 @@
 // config.js (相容版，請用這份覆蓋你 repo 裡的 config.js)
 (function () {
   const CFG = {
-    apiKey: "AIzaSyATuavqeRz-_THMtIzfBSm-L-OCzDMIZMY",
+    apiKey: "AIzaSyCoS6iqONnOCRS5OZeWIDy58ku9UVOQDxw",
     authDomain: "wos-quiz.firebaseapp.com",
     projectId: "wos-quiz",
     appId: "1:905547725730:web:34033c1008a11276b8d0fb"
