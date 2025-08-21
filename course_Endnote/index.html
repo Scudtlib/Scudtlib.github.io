@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EndNote 21 課程前後測</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web of Science 課程前後測</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
         }
@@ -32,352 +32,301 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-<style>
-  .illustration-wrapper {
-    max-width: 120px;  /* 桌機預設 */
-  }
-  @media (max-width: 640px) {
-    .illustration-wrapper {
-      max-width: 70px; /* 手機縮小 */
-    }
-  }
-</style>
-
-<style id="responsive-illustration-css">
-  .illustration-wrapper {
-    max-width: 120px;  /* 桌機預設 */
-    margin: 0 auto 0.75rem; /* 置中 + 適度留白 */
-  }
-  @media (max-width: 640px) {
-    .illustration-wrapper {
-      max-width: 70px; /* 手機縮小 */
-    }
-  }
-  .illustration-wrapper svg, .illustration-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-</style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-<div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl" id="app">
-<!-- 首頁 -->
-<div class="text-center space-y-8 fade-in" id="home-page">
-<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-<!-- 可愛插圖 (尺寸已縮小) -->
-<div class="w-full max-w-56 mx-auto mb-6">
-<div class="illustration-wrapper"><svg style="width:100%;height:auto;display:block" viewbox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 140 Q 50 110 100 120 T 190 130" fill="none" stroke="#a7f3d0" stroke-width="2"></path>
-<path d="M5 130 Q 55 100 105 110 T 195 120" fill="none" stroke="#bae6fd" stroke-width="2"></path>
-<circle cx="40" cy="90" fill="#fde68a" r="20"></circle>
-<circle cx="40" cy="90" fill="#fcd34d" r="15"></circle>
-<g transform="translate(130 60)">
-<path d="M 0 0 L 40 0 L 40 60 L 0 60 Z" fill="#d1d5db" rx="5"></path>
-<path d="M 5 5 L 35 5 L 35 55 L 5 55 Z" fill="#fff" rx="3"></path>
-<rect fill="#3b82f6" height="5" rx="2" width="20" x="10" y="10"></rect>
-<rect fill="#9ca3af" height="3" rx="1" width="15" x="10" y="20"></rect>
-<rect fill="#9ca3af" height="3" rx="1" width="20" x="10" y="28"></rect>
-<rect fill="#9ca3af" height="3" rx="1" width="18" x="10" y="36"></rect>
-</g>
-<g transform="translate(20 100)">
-<path d="M10 30 C 15 10, 35 10, 40 30" fill="#f9a8d4"></path>
-<circle cx="25" cy="15" fill="#fbcfe8" r="15"></circle>
-<circle cx="20" cy="15" fill="#4b5563" r="2"></circle>
-<circle cx="30" cy="15" fill="#4b5563" r="2"></circle>
-<path d="M 22 22 Q 25 25 28 22" fill="none" stroke="#4b5563" stroke-linecap="round" stroke-width="1.5"></path>
-</g>
-<g transform="translate(90 95)">
-<path d="M10 30 C 15 10, 35 10, 40 30" fill="#a5b4fc"></path>
-<circle cx="25" cy="15" fill="#c7d2fe" r="15"></circle>
-<circle cx="20" cy="15" fill="#4b5563" r="2"></circle>
-<circle cx="30" cy="15" fill="#4b5563" r="2"></circle>
-<path d="M 22 22 Q 25 20 28 22" fill="none" stroke="#4b5563" stroke-linecap="round" stroke-width="1.5"></path>
-</g>
-</svg></div>
-</div>
-<h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 21 利用教育課程</h1>
-<p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-<div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-<svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</div>
-<h2 class="text-2xl font-bold text-gray-800 mb-4">課程前測</h2>
-<p class="text-gray-600 mb-6">在課程開始前，請先完成此份測驗，幫助我們了解您對資料庫的既有認識。</p>
-<button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300" onclick="showPage('pre-test-page')">
+
+    <div id="app" class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+
+        <!-- 首頁 -->
+        <div id="home-page" class="text-center space-y-8 fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程前測</h2>
+                    <p class="text-gray-600 mb-6">在課程開始前，請先完成此份測驗，幫助我們了解您對資料庫的既有認識。</p>
+                    <button onclick="showPage('pre-test-page')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
                         開始前測
                     </button>
-</div>
-<div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-<div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-<svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</div>
-<h2 class="text-2xl font-bold text-gray-800 mb-4">課程後測 &amp; 滿意度調查</h2>
-<p class="text-gray-600 mb-6">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
-<button class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300" onclick="promptForCode('post-test')">
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程後測 & 滿意度調查</h2>
+                    <p class="text-gray-600 mb-6">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
+                    <button onclick="promptForCode('post-test')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
                         開始後測
                     </button>
-</div>
-</div>
-<div class="mt-8">
-<button class="text-sm text-gray-500 hover:text-blue-600" onclick="promptForCode('admin')">管理員登入查看結果</button>
-</div>
-</div>
-<!-- 前測頁面 -->
-<div class="hidden fade-in" id="pre-test-page">
-<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-<h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">課程前測</h1>
-<div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
-<p>各位師長、同學大家好，</p>
-<p>歡迎您參與圖書館舉辦之利用教育課程。這份前測主要目的是想要瞭解大家在這門課程前對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
-<div class="text-right pt-2">
-<p>圖書館 敬上</p>
-</div>
-</div>
-<div class="mb-6">
-<label class="block text-gray-700 text-sm font-bold mb-2" for="pre-test-user-id">學號 / 人事代碼 <span class="text-red-500">*</span></label>
-<input class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" id="pre-test-user-id" required="" type="text"/>
-</div>
-<form class="space-y-8" id="pre-test-form"></form>
-<div class="mt-8 flex justify-between items-center">
-<button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300" onclick="showPage('home-page')">返回首頁</button>
-<button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300" onclick="submitPreTest()">提交</button>
-</div>
-</div>
-</div>
-<!-- 後測與滿意度調查頁面 -->
-<div class="hidden fade-in" id="post-test-page">
-<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-<h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">課程後測 &amp; 滿意度調查</h1>
-<div class="bg-green-50 border-l-4 border-green-400 text-green-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
-<p>各位師長、同學大家好，</p>
-<p>歡迎您參與圖書館舉辦之利用教育課程。這份後測主要目的是想要瞭解大家在這門課程後對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
-<div class="text-right pt-2">
-<p>圖書館 敬上</p>
-</div>
-</div>
-<!-- 後測題目 -->
-<h2 class="text-xl font-bold text-gray-800 mt-8 mb-4 border-b pb-2">第一部分：課程後測</h2>
-<div class="mb-6">
-<label class="block text-gray-700 text-sm font-bold mb-2" for="post-test-user-id">學號 / 人事代碼 <span class="text-red-500">*</span></label>
-<input class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="post-test-user-id" required="" type="text"/>
-</div>
-<form class="space-y-8" id="post-test-form"></form>
-<!-- 滿意度調查 -->
-<h2 class="text-xl font-bold text-gray-800 mt-12 mb-4 border-b pb-2">第二部分：滿意度調查</h2>
-<form class="space-y-8" id="satisfaction-form">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
-<select class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="gender">
-<option disabled="" selected="" value="">請選擇...</option>
-<option>男</option>
-<option>女</option>
-</select>
-</div>
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
-<select class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="status">
-<option disabled="" selected="" value="">請選擇...</option>
-<option>大學部</option>
-<option>碩士生</option>
-<option>博士生</option>
-<option>教師</option>
-<option>職員</option>
-<option>其它</option>
-</select>
-</div>
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
-<select class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="college">
-<option disabled="" selected="" value="">請選擇...</option>
-<option>人社院</option>
-<option>外國語文學院</option>
-<option>理學院</option>
-<option>法學院</option>
-<option>商學院</option>
-<option>巨量資料管理學院</option>
-<option>行政單位</option>
-<option>其它</option>
-</select>
-</div>
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
-<input class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="department" type="text"/>
-</div>
-</div>
+                </div>
+            </div>
+             <div class="mt-8">
+                <button onclick="promptForCode('admin')" class="text-sm text-gray-500 hover:text-blue-600">管理員登入查看結果</button>
+            </div>
+        </div>
+
+        <!-- 前測頁面 -->
+        <div id="pre-test-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">課程前測</h1>
+                <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
+                    <p>各位師長、同學大家好，</p>
+                    <p>歡迎您參與圖書館舉辦之利用教育課程。這份前測主要目的是想要瞭解大家在這門課程前對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                    <div class="text-right pt-2">
+                        <p>圖書館 敬上</p>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="pre-test-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 <span class="text-red-500">*</span></label>
+                    <input type="text" id="pre-test-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <form id="pre-test-form" class="space-y-8"></form>
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                    <button onclick="submitPreTest()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">提交</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 後測與滿意度調查頁面 -->
+        <div id="post-test-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">課程後測 & 滿意度調查</h1>
+                <div class="bg-green-50 border-l-4 border-green-400 text-green-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
+                     <p>各位師長、同學大家好，</p>
+                     <p>歡迎您參與圖書館舉辦之利用教育課程。這份後測主要目的是想要瞭解大家在這門課程後對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                     <div class="text-right pt-2">
+                         <p>圖書館 敬上</p>
+                     </div>
+                </div>
+
+                <!-- 後測題目 -->
+                <h2 class="text-xl font-bold text-gray-800 mt-8 mb-4 border-b pb-2">第一部分：課程後測</h2>
+                <div class="mb-6">
+                    <label for="post-test-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 <span class="text-red-500">*</span></label>
+                    <input type="text" id="post-test-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                </div>
+                <form id="post-test-form" class="space-y-8"></form>
+
+                <!-- 滿意度調查 -->
+                <h2 class="text-xl font-bold text-gray-800 mt-12 mb-4 border-b pb-2">第二部分：滿意度調查</h2>
+                <form id="satisfaction-form" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
+                            <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
+                            <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>大學部</option>
+                                <option>碩士生</option>
+                                <option>博士生</option>
+                                <option>教師</option>
+                                <option>職員</option>
+                                <option>其它</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
+                            <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                                <option value="" disabled selected>請選擇...</option>
+                                <option>人社院</option>
+                                <option>外國語文學院</option>
+                                <option>理學院</option>
+                                <option>法學院</option>
+                                <option>商學院</option>
+                                <option>巨量資料管理學院</option>
+                                <option>行政單位</option>
+                                <option>其它</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
+                            <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                        </div>
+                    </div>
+                    
+                    <!-- Q1 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q1-satisfaction -->
 <div class="bg-gray-50 p-4 rounded-lg">
-<label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
-<div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-<span>非常不同意</span>
-<div class="flex space-x-2 sm:space-x-4">
-<input class="form-radio h-5 w-5" name="q1-satisfaction" type="radio" value="1"/>
-<input class="form-radio h-5 w-5" name="q1-satisfaction" type="radio" value="2"/>
-<input class="form-radio h-5 w-5" name="q1-satisfaction" type="radio" value="3"/>
-<input class="form-radio h-5 w-5" name="q1-satisfaction" type="radio" value="4"/>
-<input class="form-radio h-5 w-5" name="q1-satisfaction" type="radio" value="5"/>
-</div>
-<span>非常同意</span>
-</div>
-</div>
+                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
+                            <span>非常同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常不同意</span>
+                        </div>
+                    </div>
+                     <!-- Q2 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q2-satisfaction -->
 <div class="bg-gray-50 p-4 rounded-lg">
-<label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
-<div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-<span>非常不同意</span>
-<div class="flex space-x-2 sm:space-x-4">
-<input class="form-radio h-5 w-5" name="q2-satisfaction" type="radio" value="1"/>
-<input class="form-radio h-5 w-5" name="q2-satisfaction" type="radio" value="2"/>
-<input class="form-radio h-5 w-5" name="q2-satisfaction" type="radio" value="3"/>
-<input class="form-radio h-5 w-5" name="q2-satisfaction" type="radio" value="4"/>
-<input class="form-radio h-5 w-5" name="q2-satisfaction" type="radio" value="5"/>
-</div>
-<span>非常同意</span>
-</div>
-</div>
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">3. 對於本次課程，您有任何建議或想分享的心得嗎?</label>
-<textarea class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="feedback" rows="3"></textarea>
-</div>
-<div>
-<label class="block text-gray-700 text-sm font-bold mb-2">4. 您下次希望參加的課程內容為何?</label>
-<textarea class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" id="future-topics" rows="3"></textarea>
-</div>
-</form>
-<div class="mt-8 flex justify-between items-center">
-<button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300" onclick="showPage('home-page')">返回首頁</button>
-<button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300" onclick="submitPostTest()">提交</button>
-</div>
-</div>
-</div>
-<!-- 結果頁面 -->
-<div class="hidden fade-in" id="results-page">
-<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-<h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">後測結果與解答</h1>
-<div class="space-y-6" id="results-container"></div>
-<div class="mt-8 text-center">
-<button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300" onclick="showPage('home-page')">返回首頁</button>
-</div>
-</div>
-</div>
-<!-- 管理員頁面 -->
-<div class="hidden fade-in" id="admin-page">
-<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-<div class="flex justify-between items-center mb-6">
-<h1 class="text-2xl sm:text-3xl font-bold text-gray-800">管理員後台 - 測驗結果</h1>
-<button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300" onclick="showPage('home-page')">返回首頁</button>
-</div>
-<div class="mb-8">
-<h2 class="text-xl font-bold text-blue-600 mb-3">前測結果</h2>
-<div class="flex gap-4 mb-3">
-<button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg" onclick="fetchResults('pre-test-submissions')">載入前測資料</button>
-<button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" onclick="downloadCSV('pre-test-table')">下載 CSV</button>
-</div>
-<div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
-<table class="w-full text-sm text-left text-gray-500" id="pre-test-table">
-<thead class="text-xs text-gray-700 uppercase bg-gray-200">
-<tr>
-<th class="px-4 py-3" scope="col">提交時間</th>
-<th class="px-4 py-3" scope="col">學號/代碼</th>
-<th class="px-4 py-3" scope="col">答對題數</th>
-<th class="px-4 py-3" scope="col">Q1</th>
-<th class="px-4 py-3" scope="col">Q2</th>
-<th class="px-4 py-3" scope="col">Q3</th>
-<th class="px-4 py-3" scope="col">Q4</th>
-<th class="px-4 py-3" scope="col">Q5</th>
-<th class="px-4 py-3" scope="col">Q6</th>
-</tr>
-</thead>
-<tbody id="pre-test-results-body"></tbody>
-</table>
-</div>
-</div>
-<div class="mb-8">
-<h2 class="text-xl font-bold text-green-600 mb-3">後測與滿意度結果</h2>
-<div class="flex gap-4 mb-3">
-<button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg" onclick="fetchResults('post-test-submissions')">載入後測資料</button>
-<button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" onclick="downloadCSV('post-test-table')">下載 CSV</button>
-</div>
-<div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
-<table class="w-full text-sm text-left text-gray-500" id="post-test-table">
-<thead class="text-xs text-gray-700 uppercase bg-gray-200">
-<tr>
-<th class="px-4 py-3" scope="col">提交時間</th>
-<th class="px-4 py-3" scope="col">學號/代碼</th>
-<th class="px-4 py-3" scope="col">答對題數</th>
-<th class="px-4 py-3" scope="col">Q1</th>
-<th class="px-4 py-3" scope="col">Q2</th>
-<th class="px-4 py-3" scope="col">Q3</th>
-<th class="px-4 py-3" scope="col">Q4</th>
-<th class="px-4 py-3" scope="col">Q5</th>
-<th class="px-4 py-3" scope="col">Q6</th>
-<th class="px-4 py-3" scope="col">性別</th>
-<th class="px-4 py-3" scope="col">身分</th>
-<th class="px-4 py-3" scope="col">學院/單位</th>
-<th class="px-4 py-3" scope="col">系所</th>
-<th class="px-4 py-3" scope="col">滿意度1</th>
-<th class="px-4 py-3" scope="col">滿意度2</th>
-<th class="px-4 py-3" scope="col">建議</th>
-<th class="px-4 py-3" scope="col">未來主題</th>
-</tr>
-</thead>
-<tbody id="post-test-results-body"></tbody>
-</table>
-</div>
-</div>
-<div>
-<h2 class="text-xl font-bold text-gray-700 mb-3">前後測題目與解答資料庫</h2>
-<p class="text-sm text-gray-600 mb-3">您可以直接複製下方的文字，這包含了所有題目、選項與正確答案。</p>
-<div class="bg-gray-100 border border-gray-300 text-gray-800 p-4 rounded-lg text-sm overflow-x-auto">
-<pre id="questions-db"></pre>
-</div>
-</div>
-</div>
-</div>
-<!-- 訊息提示框 -->
-<div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center" id="message-modal">
-<div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-<div class="mt-3 text-center">
-<div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100" id="modal-icon">
-<svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<h3 class="text-lg leading-6 font-medium text-gray-900 mt-2" id="modal-title">成功!</h3>
-<div class="mt-2 px-7 py-3">
-<p class="text-sm text-gray-500" id="modal-message"></p>
-</div>
-<div class="items-center px-4 py-3">
-<button class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300" id="modal-close-button">
+                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
+                            <span>非常同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常不同意</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">3. 對於本次課程，您有任何建議或想分享的心得嗎?</label>
+                        <textarea id="feedback" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">4. 您下次希望參加的課程內容為何?</label>
+                        <textarea id="future-topics" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
+                    </div>
+                </form>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                    <button onclick="submitPostTest()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">提交</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 結果頁面 -->
+        <div id="results-page" class="hidden fade-in">
+             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">後測結果與解答</h1>
+                <div id="results-container" class="space-y-6"></div>
+                <div class="mt-8 text-center">
+                    <button onclick="showPage('home-page')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">返回首頁</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 管理員頁面 -->
+        <div id="admin-page" class="hidden fade-in">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">管理員後台 - 測驗結果</h1>
+                    <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
+                </div>
+                
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-blue-600 mb-3">前測結果</h2>
+                    <div class="flex gap-4 mb-3">
+                        <button onclick="fetchResults('pre-test-submissions')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">載入前測資料</button>
+                        <button onclick="downloadCSV('pre-test-table')" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">下載 CSV</button>
+                    </div>
+                    <div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
+                        <table id="pre-test-table" class="w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">提交時間</th>
+                                    <th scope="col" class="px-4 py-3">學號/代碼</th>
+                                    <th scope="col" class="px-4 py-3">答對題數</th>
+                                    <th scope="col" class="px-4 py-3">Q1</th>
+                                    <th scope="col" class="px-4 py-3">Q2</th>
+                                    <th scope="col" class="px-4 py-3">Q3</th>
+                                    <th scope="col" class="px-4 py-3">Q4</th>
+                                    <th scope="col" class="px-4 py-3">Q5</th>
+                                    <th scope="col" class="px-4 py-3">Q6</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pre-test-results-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-green-600 mb-3">後測與滿意度結果</h2>
+                     <div class="flex gap-4 mb-3">
+                        <button onclick="fetchResults('post-test-submissions')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">載入後測資料</button>
+                        <button onclick="downloadCSV('post-test-table')" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">下載 CSV</button>
+                    </div>
+                    <div class="overflow-x-auto bg-gray-50 rounded-lg p-2">
+                        <table id="post-test-table" class="w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">提交時間</th>
+                                    <th scope="col" class="px-4 py-3">學號/代碼</th>
+                                    <th scope="col" class="px-4 py-3">答對題數</th>
+                                    <th scope="col" class="px-4 py-3">Q1</th>
+                                    <th scope="col" class="px-4 py-3">Q2</th>
+                                    <th scope="col" class="px-4 py-3">Q3</th>
+                                    <th scope="col" class="px-4 py-3">Q4</th>
+                                    <th scope="col" class="px-4 py-3">Q5</th>
+                                    <th scope="col" class="px-4 py-3">Q6</th>
+                                    <th scope="col" class="px-4 py-3">性別</th>
+                                    <th scope="col" class="px-4 py-3">身分</th>
+                                    <th scope="col" class="px-4 py-3">學院/單位</th>
+                                    <th scope="col" class="px-4 py-3">系所</th>
+                                    <th scope="col" class="px-4 py-3">滿意度1</th>
+                                    <th scope="col" class="px-4 py-3">滿意度2</th>
+                                    <th scope="col" class="px-4 py-3">建議</th>
+                                    <th scope="col" class="px-4 py-3">未來主題</th>
+                                </tr>
+                            </thead>
+                            <tbody id="post-test-results-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-bold text-gray-700 mb-3">前後測題目與解答資料庫</h2>
+                    <p class="text-sm text-gray-600 mb-3">您可以直接複製下方的文字，這包含了所有題目、選項與正確答案。</p>
+                    <div class="bg-gray-100 border border-gray-300 text-gray-800 p-4 rounded-lg text-sm overflow-x-auto">
+                        <pre id="questions-db"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 訊息提示框 -->
+        <div id="message-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+            <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <div class="mt-3 text-center">
+                    <div id="modal-icon" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                         <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 id="modal-title" class="text-lg leading-6 font-medium text-gray-900 mt-2">成功!</h3>
+                    <div class="mt-2 px-7 py-3">
+                        <p id="modal-message" class="text-sm text-gray-500"></p>
+                    </div>
+                    <div class="items-center px-4 py-3">
+                        <button id="modal-close-button" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
                             關閉
                         </button>
-</div>
-</div>
-</div>
-</div>
-<!-- 驗證碼輸入框 -->
-<div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center" id="prompt-modal">
-<div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-<div class="mt-3">
-<h3 class="text-lg leading-6 font-medium text-gray-900 text-center" id="prompt-title"></h3>
-<div class="mt-4">
-<input class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" id="prompt-input" placeholder="請輸入代碼..." type="password"/>
-<p class="text-red-500 text-xs italic mt-2 hidden" id="prompt-error">代碼錯誤，請重試。</p>
-</div>
-<div class="items-center px-4 py-3 mt-4 flex justify-end space-x-2">
-<button class="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md shadow-sm hover:bg-gray-300 focus:outline-none" id="prompt-cancel-button">取消</button>
-<button class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-600 focus:outline-none" id="prompt-ok-button">確認</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script id="course-id-declare">window.__course_id = "course_Endnote";</script>
+        <!-- 驗證碼輸入框 -->
+        <div id="prompt-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+            <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <div class="mt-3">
+                    <h3 id="prompt-title" class="text-lg leading-6 font-medium text-gray-900 text-center"></h3>
+                    <div class="mt-4">
+                        <input type="password" id="prompt-input" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="請輸入代碼...">
+                        <p id="prompt-error" class="text-red-500 text-xs italic mt-2 hidden">代碼錯誤，請重試。</p>
+                    </div>
+                    <div class="items-center px-4 py-3 mt-4 flex justify-end space-x-2">
+                        <button id="prompt-cancel-button" class="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md shadow-sm hover:bg-gray-300 focus:outline-none">取消</button>
+                        <button id="prompt-ok-button" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-600 focus:outline-none">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
+
+    <script src="./config.js"></script>
 <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -409,66 +358,67 @@
         }
 
         // --- 題目資料庫 ---
-        const questions = [
+        
+const questions = [
   {
-    question: "1. 在 Word 中使用 EndNote 的 Cite While You Write (CWYW) 功能時，插入參考文獻的正確步驟是？",
+    question: "1. 從資料庫（如 Web of Science、PubMed）將文獻加入 EndNote，最穩定的做法是？",
     options: [
-      "在 EndNote Library 中複製貼上引文",
-      "在 Word 中點選「Insert Citation」功能",
-      "先將 Word 檔匯出為 PDF 再插入",
-      "在 Word 中手動輸入 DOI"
+      "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入",
+      "把 BibTeX 內容貼到備註欄即可",
+      "直接複製貼上整段參考文獻到 EndNote",
+      "只要下載 PDF，EndNote 會自動建立完整書目"
     ],
-    answer: "在 Word 中點選「Insert Citation」功能"
+    answer: "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入"
   },
   {
-    question: "2. 若要將期刊格式（Style）改為 APA 第 7 版，應該在哪裡設定？",
+    question: "2. 想在 EndNote 中自動尋找並附加文獻的全文 PDF，應使用哪個功能？",
     options: [
-      "Word 的「引用」功能",
-      "EndNote 的 Style 下拉選單",
-      "在 PDF 檔案屬性中設定",
-      "Google Scholar 匯出時選擇"
+      "References > Find Full Text",
+      "Tools > Sync",
+      "Edit > Output Styles",
+      "References > File Attachments"
     ],
-    answer: "EndNote 的 Style 下拉選單"
+    answer: "References > Find Full Text"
   },
   {
-    question: "3. 想要自動把「作者包含 Chen」的文獻收集到一個群組，應該使用哪個功能？",
+    question: "3. 在 Word 使用 EndNote 的 Cite While You Write 外掛，若要把引用格式從 APA 改成 Vancouver，應該怎麼做？",
     options: [
-      "Smart Group",
-      "Group Set",
-      "Custom Field",
-      "Temporary Citation"
+      "在 Word 的 EndNote 標籤中，於 “Style” 下拉選單改為 Vancouver",
+      "到 EndNote 把每筆記錄的 Journal 名稱手動改成縮寫",
+      "在 Word 手動輸入括號與編號取代引文",
+      "在 EndNote 偏好設定關閉同步即可套用新樣式"
     ],
-    answer: "Smart Group"
+    answer: "在 Word 的 EndNote 標籤中，於 “Style” 下拉選單改為 Vancouver"
   },
   {
-    question: "4. 匯入 PDF 檔案建立書目時，若無法自動產生參考文獻，最可能的原因是？",
+    question: "4. 想要找出 EndNote 資料庫中重複的文獻紀錄，應使用哪個功能？",
     options: [
-      "PDF 沒有正確的 DOI",
-      "PDF 檔案超過 1GB",
-      "PDF 檔名含有中文",
-      "EndNote 不支援 PDF 格式"
+      "References > Find Duplicates",
+      "Tools > Sync",
+      "File > Save a Copy",
+      "References > Link to PDF"
     ],
-    answer: "PDF 沒有正確的 DOI"
+    answer: "References > Find Duplicates"
   },
   {
-    question: "5. 將 EndNote Library 儲存在雲端硬碟（如 Google Drive）最可能造成的問題是？",
+    question: "5. 若要在多台電腦之間同步書目與群組（包含線上帳號），應該如何操作？",
     options: [
-      "Library 開啟速度變快",
-      "可能導致 Library 損壞",
-      "自動同步參考文獻樣式",
-      "無法再建立群組"
+      "在 EndNote 以 Sync 登入帳號，啟用同步功能",
+      "只能匯出 .enl 檔案再用隨身碟搬移",
+      "必須用共享資料夾手動複製整個資料庫",
+      "僅能同步附件，無法同步書目資料"
     ],
-    answer: "可能導致 Library 損壞"
+    answer: "在 EndNote 以 Sync 登入帳號，啟用同步功能"
   },
   {
-    question: "6. 在 Word 論文中，要一次更新所有參考文獻格式，應該怎麼做？",
+    question: "6. 想把選取的參考文獻輸出成指定期刊樣式（如 APA 7 或 Vancouver），最恰當的做法是？",
     options: [
-      "在 Word 中點選「Update Citations and Bibliography」",
-      "重新安裝 EndNote",
-      "在 EndNote 裡重新建立 Library",
-      "手動刪除再重新插入每一筆引文"
+      "在 EndNote 選取記錄後，使用 Copy Formatted 或 Export 並套用目標 Output Style",
+      "在 Word 直接複製 EndNote 欄位碼（field codes）",
+      "把樣式名稱打在備註欄即可改樣式",
+      "刪除多餘欄位讓樣式自動校正"
     ],
-    answer: "在 Word 中點選「Update Citations and Bibliography」"
+    answer: "在 EndNote 選取記錄後，使用 Copy Formatted 或 Export 並套用目標 Output Style"
   }
 ];
 
@@ -581,7 +531,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
+                await addDoc(collection(db, collectionPath), {
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -637,7 +587,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
+                await addDoc(collection(db, collectionPath), {
                     userId: userId,
                     answers: answers,
                     score: score,
