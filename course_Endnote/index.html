@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web of Science 課程前後測</title>
+    <title>EndNote 利用教育課程｜課程前後測</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -31,7 +31,10 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-    </style>
+    
+  .illustration-wrapper{max-width:120px}
+  @media(max-width:640px){.illustration-wrapper{max-width:70px}}
+</style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -40,7 +43,31 @@
         <!-- 首頁 -->
         <div id="home-page" class="text-center space-y-8 fade-in">
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
+                
+<div class="illustration-wrapper mx-auto mb-6">
+<svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#fda4af"/><stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="30" rx="6" ry="6" width="100" height="30" fill="url(#g1)"/>
+  <rect x="16" y="34" rx="4" ry="4" width="88" height="22" fill="white" opacity=".9"/>
+  <rect x="25" y="41" width="50" height="4" rx="2" fill="#93c5fd"/>
+  <rect x="25" y="49" width="35" height="4" rx="2" fill="#bfdbfe"/>
+  <rect x="78" y="16" width="20" height="25" rx="2" fill="url(#g2)"/>
+  <line x1="82" y1="23" x2="94" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line x1="82" y1="29" x2="94" y2="29" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="30" cy="22" r="8" fill="#fde68a"/>
+  <circle cx="27.5" cy="21" r="1.2" fill="#374151"/>
+  <circle cx="32.5" cy="21" r="1.2" fill="#374151"/>
+  <path d="M27.5 24 q2.5 3 5 0" stroke="#374151" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -358,67 +385,72 @@
         }
 
         // --- 題目資料庫 ---
-        
-const questions = [
+        const questions = [
   {
-    question: "1. 從資料庫（如 Web of Science、PubMed）將文獻加入 EndNote，最穩定的做法是？",
+    type: "single",
+    title: "1. 從資料庫（如 Web of Science、PubMed）將文獻加入 EndNote，最穩定的做法是？",
     options: [
       "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入",
       "把 BibTeX 內容貼到備註欄即可",
       "直接複製貼上整段參考文獻到 EndNote",
       "只要下載 PDF，EndNote 會自動建立完整書目"
     ],
-    answer: "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入"
+    answer: 0
   },
   {
-    question: "2. 想在 EndNote 中自動尋找並附加文獻的全文 PDF，應使用哪個功能？",
+    type: "single",
+    title: "2. 要讓 EndNote 自動尋找並附加全文 PDF 檔，應使用哪個功能？",
     options: [
       "References > Find Full Text",
       "Tools > Sync",
       "Edit > Output Styles",
       "References > File Attachments"
     ],
-    answer: "References > Find Full Text"
+    answer: 0
   },
   {
-    question: "3. 在 Word 使用 EndNote 的 Cite While You Write 外掛，若要把引用格式從 APA 改成 Vancouver，應該怎麼做？",
+    type: "single",
+    title: "3. 在 Word 中把引用樣式從 APA 改成 Vancouver 的正確做法是？",
     options: [
-      "在 Word 的 EndNote 標籤中，於 “Style” 下拉選單改為 Vancouver",
-      "到 EndNote 把每筆記錄的 Journal 名稱手動改成縮寫",
-      "在 Word 手動輸入括號與編號取代引文",
-      "在 EndNote 偏好設定關閉同步即可套用新樣式"
+      "在 Word 的 EndNote 標籤 → Style 下拉選單改為 Vancouver",
+      "到 EndNote 把每筆文獻的 Journal 名稱手動改成數字",
+      "手動輸入括號與編號即可",
+      "在 EndNote 偏好設定關閉同步"
     ],
-    answer: "在 Word 的 EndNote 標籤中，於 “Style” 下拉選單改為 Vancouver"
+    answer: 0
   },
   {
-    question: "4. 想要找出 EndNote 資料庫中重複的文獻紀錄，應使用哪個功能？",
+    type: "single",
+    title: "4. 想找出資料庫中可能重複的文獻，該使用哪個功能？",
     options: [
       "References > Find Duplicates",
       "Tools > Sync",
       "File > Save a Copy",
       "References > Link to PDF"
     ],
-    answer: "References > Find Duplicates"
+    answer: 0
   },
   {
-    question: "5. 若要在多台電腦之間同步書目與群組（包含線上帳號），應該如何操作？",
+    type: "single",
+    title: "5. 想要在多台電腦同步書目與群組，正確作法是？",
     options: [
-      "在 EndNote 以 Sync 登入帳號，啟用同步功能",
-      "只能匯出 .enl 檔案再用隨身碟搬移",
-      "必須用共享資料夾手動複製整個資料庫",
-      "僅能同步附件，無法同步書目資料"
+      "在 EndNote 以 Sync 登入帳號並啟用同步",
+      "只能匯出 .enl 檔用隨身碟搬移",
+      "必須共享資料夾手動複製",
+      "只能同步附件，不能同步書目"
     ],
-    answer: "在 EndNote 以 Sync 登入帳號，啟用同步功能"
+    answer: 0
   },
   {
-    question: "6. 想把選取的參考文獻輸出成指定期刊樣式（如 APA 7 或 Vancouver），最恰當的做法是？",
+    type: "single",
+    title: "6. 要把選取的參考文獻輸出成指定期刊格式（如 APA 7 或 Vancouver），較正確的方式是？",
     options: [
-      "在 EndNote 選取記錄後，使用 Copy Formatted 或 Export 並套用目標 Output Style",
-      "在 Word 直接複製 EndNote 欄位碼（field codes）",
-      "把樣式名稱打在備註欄即可改樣式",
-      "刪除多餘欄位讓樣式自動校正"
+      "在 EndNote 選取記錄後，用 Copy Formatted 或 Export，並套用目標 Output Style",
+      "在 Word 直接複製 EndNote 欄位碼",
+      "在備註欄輸入樣式名稱",
+      "刪除欄位讓樣式自動校正"
     ],
-    answer: "在 EndNote 選取記錄後，使用 Copy Formatted 或 Export 並套用目標 Output Style"
+    answer: 0
   }
 ];
 
@@ -735,7 +767,7 @@ const questions = [
             questions.forEach((q, index) => {
                 textContent += `問題 ${index + 1}: ${q.question}\n`;
                 q.options.forEach(opt => {
-                    textContent += `- ${opt}\n`;
+                    textContent += `- ${oi + 1}. ${opt}\n`;
                 });
                 textContent += `正確答案: ${q.answer}\n`;
                 textContent += '--------------------------------------------------\n\n';
