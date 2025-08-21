@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EndNote 利用教育課程｜課程前後測</title>
+    <title>EndNote 課程前後測</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -31,10 +31,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-    
-  .illustration-wrapper{max-width:120px}
-  @media(max-width:640px){.illustration-wrapper{max-width:70px}}
-</style>
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -43,31 +40,7 @@
         <!-- 首頁 -->
         <div id="home-page" class="text-center space-y-8 fade-in">
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                
-<div class="illustration-wrapper mx-auto mb-6">
-<svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g1" x1="0" x2="1">
-      <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#60a5fa"/>
-    </linearGradient>
-    <linearGradient id="g2" x1="0" x2="1">
-      <stop offset="0" stop-color="#fda4af"/><stop offset="1" stop-color="#f472b6"/>
-    </linearGradient>
-  </defs>
-  <rect x="10" y="30" rx="6" ry="6" width="100" height="30" fill="url(#g1)"/>
-  <rect x="16" y="34" rx="4" ry="4" width="88" height="22" fill="white" opacity=".9"/>
-  <rect x="25" y="41" width="50" height="4" rx="2" fill="#93c5fd"/>
-  <rect x="25" y="49" width="35" height="4" rx="2" fill="#bfdbfe"/>
-  <rect x="78" y="16" width="20" height="25" rx="2" fill="url(#g2)"/>
-  <line x1="82" y1="23" x2="94" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <line x1="82" y1="29" x2="94" y2="29" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="30" cy="22" r="8" fill="#fde68a"/>
-  <circle cx="27.5" cy="21" r="1.2" fill="#374151"/>
-  <circle cx="32.5" cy="21" r="1.2" fill="#374151"/>
-  <path d="M27.5 24 q2.5 3 5 0" stroke="#374151" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-</svg>
-</div>
-<h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -178,34 +151,32 @@
                         </div>
                     </div>
                     
-                    <!-- Q1 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q1-satisfaction -->
-<div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-                            <span>非常同意</span>
-                            <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
-                            </div>
                             <span>非常不同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常同意</span>
                         </div>
                     </div>
-                     <!-- Q2 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q2-satisfaction -->
-<div class="bg-gray-50 p-4 rounded-lg">
+                     <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-                            <span>非常同意</span>
-                            <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
-                            </div>
                             <span>非常不同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常同意</span>
                         </div>
                     </div>
                     <div>
@@ -353,8 +324,7 @@
 
     </div>
 
-    <script src="./config.js"></script>
-<script type="module">
+    <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -386,73 +356,67 @@
 
         // --- 題目資料庫 ---
         const questions = [
-  {
-    type: "single",
-    title: "1. 從資料庫（如 Web of Science、PubMed）將文獻加入 EndNote，最穩定的做法是？",
-    options: [
-      "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入",
-      "把 BibTeX 內容貼到備註欄即可",
-      "直接複製貼上整段參考文獻到 EndNote",
-      "只要下載 PDF，EndNote 會自動建立完整書目"
-    ],
-    answer: 0
-  },
-  {
-    type: "single",
-    title: "2. 要讓 EndNote 自動尋找並附加全文 PDF 檔，應使用哪個功能？",
-    options: [
-      "References > Find Full Text",
-      "Tools > Sync",
-      "Edit > Output Styles",
-      "References > File Attachments"
-    ],
-    answer: 0
-  },
-  {
-    type: "single",
-    title: "3. 在 Word 中把引用樣式從 APA 改成 Vancouver 的正確做法是？",
-    options: [
-      "在 Word 的 EndNote 標籤 → Style 下拉選單改為 Vancouver",
-      "到 EndNote 把每筆文獻的 Journal 名稱手動改成數字",
-      "手動輸入括號與編號即可",
-      "在 EndNote 偏好設定關閉同步"
-    ],
-    answer: 0
-  },
-  {
-    type: "single",
-    title: "4. 想找出資料庫中可能重複的文獻，該使用哪個功能？",
-    options: [
-      "References > Find Duplicates",
-      "Tools > Sync",
-      "File > Save a Copy",
-      "References > Link to PDF"
-    ],
-    answer: 0
-  },
-  {
-    type: "single",
-    title: "5. 想要在多台電腦同步書目與群組，正確作法是？",
-    options: [
-      "在 EndNote 以 Sync 登入帳號並啟用同步",
-      "只能匯出 .enl 檔用隨身碟搬移",
-      "必須共享資料夾手動複製",
-      "只能同步附件，不能同步書目"
-    ],
-    answer: 0
-  },
-  {
-    type: "single",
-    title: "6. 要把選取的參考文獻輸出成指定期刊格式（如 APA 7 或 Vancouver），較正確的方式是？",
-    options: [
-      "在 EndNote 選取記錄後，用 Copy Formatted 或 Export，並套用目標 Output Style",
-      "在 Word 直接複製 EndNote 欄位碼",
-      "在備註欄輸入樣式名稱",
-      "刪除欄位讓樣式自動校正"
-    ],
-    answer: 0
-  }
-];
+            {
+                question: "1. 當你想用自然語言詢問「永續城市」(sustainable city) 的相關研究概念，並快速獲得文獻摘要與重點整理時，應該優先使用哪個功能？",
+                options: [
+                    "Research Assistant",
+                    "引用文獻報告 (Citation Report)",
+                    "進階檢索 (Advanced Search)",
+                    "作者檢索 (Researcher Search)"
+                ],
+                answer: "Research Assistant"
+            },
+            {
+                question: "2. 王同學想知道 2010 年發表的一篇經典論文，在之後被哪些新的研究引用了，他應該點擊該論文頁面的哪個連結？",
+                options: [
+                    "引用文獻 (Times Cited)",
+                    "被引參考文獻 (Cited References)",
+                    "相關記錄 (Related Records)",
+                    "分析結果 (Analyze Results)"
+                ],
+                answer: "引用文獻 (Times Cited)"
+            },
+            {
+                question: "3. 為了縮小檢索範圍，李同學只想看近五年內發表的「評述文章 (Review Article)」，他應該如何操作？",
+                options: [
+                    "使用快速篩選與限縮功能",
+                    "建立引用文獻追蹤",
+                    "查看引用文獻報告",
+                    "直接在檢索框輸入 \"Review Article\""
+                ],
+                answer: "使用快速篩選與限縮功能"
+            },
+            {
+                question: "4. 陳老師想了解「人工智慧」主題中，哪個國家或機構的發表量最多，以便尋找合作對象。她應該使用哪個功能？",
+                options: [
+                    "分析結果 (Analyze Results)",
+                    "研究人員檢索 (Researcher Search)",
+                    "期刊引用報告 (Journal Citation Reports)",
+                    "建立追蹤 (Create Alert)"
+                ],
+                answer: "分析結果 (Analyze Results)"
+            },
+            {
+                question: "5. 林同學想評估「基因編輯」這個研究主題近十年來的整體影響力，例如總發表趨勢與被引用狀況，哪個工具最適合？",
+                options: [
+                    "引用文獻報告 (Citation Report)",
+                    "分析結果 (Analyze Results)",
+                    "作者影響力光束圖 (Author Impact Beamplot)",
+                    "研究助理 (Research Assistant)"
+                ],
+                answer: "引用文獻報告 (Citation Report)"
+            },
+            {
+                question: "6. 為了不錯過特定領域頂尖學者 (例如：Dr. Chen) 的最新發表，你應該使用 WOS 的哪個功能來自動接收通知？",
+                options: [
+                    "建立追蹤 (Create Alert)",
+                    "檢視作者個人檔案",
+                    "相關記錄 (Related Records)",
+                    "下載引用文獻報告"
+                ],
+                answer: "建立追蹤 (Create Alert)"
+            }
+        ];
 
         // --- 全域變數與狀態管理 ---
         let currentPage = 'home-page';
@@ -563,7 +527,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
-                await addDoc(collection(db, collectionPath), {
+                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -619,7 +583,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
-                await addDoc(collection(db, collectionPath), {
+                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -767,7 +731,7 @@
             questions.forEach((q, index) => {
                 textContent += `問題 ${index + 1}: ${q.question}\n`;
                 q.options.forEach(opt => {
-                    textContent += `- ${oi + 1}. ${opt}\n`;
+                    textContent += `- ${opt}\n`;
                 });
                 textContent += `正確答案: ${q.answer}\n`;
                 textContent += '--------------------------------------------------\n\n';
@@ -831,7 +795,7 @@
             let correctCode, targetPage;
 
             if (type === 'post-test') {
-                correctCode = 'EN2025';
+                correctCode = 'WOS2025';
                 targetPage = 'post-test-page';
             } else if (type === 'admin') {
                 correctCode = 'admin123';
