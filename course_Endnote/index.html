@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EndNote 課程前後測</title>
+    <title>Endnote 課程前後測</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -33,34 +33,61 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800 flex items-center justify-center min-h-screen">
 
     <div id="app" class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
 
         <!-- 首頁 -->
-        <div id="home-page" class="text-center space-y-8 fade-in">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">EndNote 利用教育課程</h1>
-                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
+        <div id="home-page" class="text-center space-y-6 fade-in">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-blue-100 rounded-full p-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-3">Endnote 利用教育課程</h1>
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程前測</h2>
-                    <p class="text-gray-600 mb-6">在課程開始前，請先完成此份測驗，幫助我們了解您對資料庫的既有認識。</p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200 text-center">
+                    <div class="flex justify-center mb-3">
+                        <div class="bg-blue-100 rounded-full p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">
+                        課程前測
+                    </h2>
+                    <p class="text-gray-600 mb-4">在課程開始前，請先完成此份測驗，幫助我們了解您對書目管理軟體的既有認識。</p>
                     <button onclick="showPage('pre-test-page')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
                         開始前測
                     </button>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">課程後測 & 滿意度調查</h2>
-                    <p class="text-gray-600 mb-6">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200 text-center">
+                     <div class="flex justify-center mb-3">
+                        <div class="bg-green-100 rounded-full p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">
+                        課程後測 & 滿意度調查
+                    </h2>
+                    <p class="text-gray-600 mb-4">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
                     <button onclick="promptForCode('post-test')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
                         開始後測
                     </button>
                 </div>
             </div>
-             <div class="mt-8">
-                <button onclick="promptForCode('admin')" class="text-sm text-gray-500 hover:text-blue-600">管理員登入查看結果</button>
+             <div class="pt-4">
+                <button onclick="promptForCode('admin')" class="text-sm text-gray-500 hover:text-blue-600">
+                    管理員登入查看結果
+                </button>
             </div>
         </div>
 
@@ -70,7 +97,7 @@
                 <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">課程前測</h1>
                 <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
                     <p>各位師長、同學大家好，</p>
-                    <p>歡迎您參與圖書館舉辦之利用教育課程。這份前測主要目的是想要瞭解大家在這門課程前對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                    <p>歡迎您參與圖書館舉辦之利用教育課程。這份前測主要目的是想要瞭解大家在這門課程前對書目管理軟體的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
                     <div class="text-right pt-2">
                         <p>圖書館 敬上</p>
                     </div>
@@ -93,7 +120,7 @@
                 <h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">課程後測 & 滿意度調查</h1>
                 <div class="bg-green-50 border-l-4 border-green-400 text-green-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
                      <p>各位師長、同學大家好，</p>
-                     <p>歡迎您參與圖書館舉辦之利用教育課程。這份後測主要目的是想要瞭解大家在這門課程後對資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                     <p>歡迎您參與圖書館舉辦之利用教育課程。這份後測主要目的是想要瞭解大家在這門課程後對書目管理軟體的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
                      <div class="text-right pt-2">
                          <p>圖書館 敬上</p>
                      </div>
@@ -151,32 +178,34 @@
                         </div>
                     </div>
                     
+                    <!-- Q1 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q1-satisfaction -->
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-                            <span>非常不同意</span>
-                            <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
-                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
-                            </div>
                             <span>非常同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常不同意</span>
                         </div>
                     </div>
-                     <div class="bg-gray-50 p-4 rounded-lg">
+                     <!-- Q2 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q2-satisfaction -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-                            <span>非常不同意</span>
-                            <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
-                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
-                            </div>
                             <span>非常同意</span>
+                            <div class="flex space-x-2 sm:space-x-4">
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5">
+                            </div>
+                            <span>非常不同意</span>
                         </div>
                     </div>
                     <div>
@@ -304,7 +333,7 @@
                 </div>
             </div>
         </div>
-
+<script src="./config.js"></script>
         <!-- 驗證碼輸入框 -->
         <div id="prompt-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
             <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
@@ -324,7 +353,7 @@
 
     </div>
 
-    <script type="module">
+<script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -333,7 +362,7 @@
         // Firebase 配置
         // 這些變數將由 Canvas 環境在執行時提供
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-wos-quiz';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-endnote-quiz';
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
         // 初始化 Firebase
@@ -357,64 +386,64 @@
         // --- 題目資料庫 ---
         const questions = [
             {
-                question: "1. 當你想用自然語言詢問「永續城市」(sustainable city) 的相關研究概念，並快速獲得文獻摘要與重點整理時，應該優先使用哪個功能？",
+                question: "1. 根據課程內容，使用 Endnote 的「PDF匯入」功能來自動建立書目資料時，成功的關鍵前提通常是什麼？",
                 options: [
-                    "Research Assistant",
-                    "引用文獻報告 (Citation Report)",
-                    "進階檢索 (Advanced Search)",
-                    "作者檢索 (Researcher Search)"
+                    "PDF 檔案的檔名必須包含作者姓名。",
+                    "該 PDF 檔案必須是彩色的掃描檔。",
+                    "PDF 文件的前兩頁內需包含可供線上比對的 DOI (數位物件識別碼)。",
+                    "只需要將 PDF 檔案拖曳至 Endnote，系統皆能百分之百成功解析。"
                 ],
-                answer: "Research Assistant"
+                answer: "PDF 文件的前兩頁內需包含可供線上比對的 DOI (數位物件識別碼)。"
             },
             {
-                question: "2. 王同學想知道 2010 年發表的一篇經典論文，在之後被哪些新的研究引用了，他應該點擊該論文頁面的哪個連結？",
+                question: "2. 在 Word 中使用 Endnote 撰寫論文時，若發現某一個引註的作者姓名拼錯了（例如，將 Miller 誤植為 Muller），最正確的處理方式是什麼？",
                 options: [
-                    "引用文獻 (Times Cited)",
-                    "被引參考文獻 (Cited References)",
-                    "相關記錄 (Related Records)",
-                    "分析結果 (Analyze Results)"
+                    "直接在 Word 的引註文字上修改，將 Muller 改為 Miller。",
+                    "在 Word 文件末端的參考書目清單中找到該筆文獻，直接修改後再更新。",
+                    "必須回到 Endnote Library 中，找到該筆文獻的原始資料進行修正，再回到 Word 更新引文。",
+                    "重新從資料庫匯入正確的書目資料，並在 Word 中刪除舊的引註，再插入新的。"
                 ],
-                answer: "引用文獻 (Times Cited)"
+                answer: "必須回到 Endnote Library 中，找到該筆文獻的原始資料進行修正，再回到 Word 更新引文。"
             },
             {
-                question: "3. 為了縮小檢索範圍，李同學只想看近五年內發表的「評述文章 (Review Article)」，他應該如何操作？",
+                question: "3. 為了完整備份或方便轉移 Endnote Library，課程中建議使用哪一項功能，能將 .enl 檔案與 .data 資料夾壓縮成單一個 .enlx 檔案？",
                 options: [
-                    "使用快速篩選與限縮功能",
-                    "建立引用文獻追蹤",
-                    "查看引用文獻報告",
-                    "直接在檢索框輸入 \"Review Article\""
+                    "Sync (同步)",
+                    "Save a Copy (另存複本)",
+                    "Export (匯出)",
+                    "Compress Library (壓縮書目庫)"
                 ],
-                answer: "使用快速篩選與限縮功能"
+                answer: "Compress Library (壓縮書目庫)"
             },
             {
-                question: "4. 陳老師想了解「人工智慧」主題中，哪個國家或機構的發表量最多，以便尋找合作對象。她應該使用哪個功能？",
+                question: "4. 在 Word 文件中插入引文後，若要將 `(Wang, 2023)` 修改為包含頁碼的 `(Wang, 2023, p. 45)`，最正確的操作方式是什麼？",
                 options: [
-                    "分析結果 (Analyze Results)",
-                    "研究人員檢索 (Researcher Search)",
-                    "期刊引用報告 (Journal Citation Reports)",
-                    "建立追蹤 (Create Alert)"
+                    "直接在 Word 的括號內手動輸入 \", p. 45\"。",
+                    "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Pages` 欄位中輸入 \"45\"。",
+                    "回到 Endnote Library 中，在該筆文獻的 Notes 欄位加上頁碼。",
+                    "刪除該引文，重新從 Endnote 中找到該文獻再次插入。"
                 ],
-                answer: "分析結果 (Analyze Results)"
+                answer: "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Pages` 欄位中輸入 \"45\"。"
             },
             {
-                question: "5. 林同學想評估「基因編輯」這個研究主題近十年來的整體影響力，例如總發表趨勢與被引用狀況，哪個工具最適合？",
+                question: "5. 若希望能在不同電腦或裝置間存取同一個 Endnote Library，需要先註冊一組 Endnote 個人化帳號，並使用哪一項核心功能？",
                 options: [
-                    "引用文獻報告 (Citation Report)",
-                    "分析結果 (Analyze Results)",
-                    "作者影響力光束圖 (Author Impact Beamplot)",
-                    "研究助理 (Research Assistant)"
+                    "Share Group (分享群組)",
+                    "Cite While You Write (隨寫即引)",
+                    "Sync (同步)",
+                    "Find Full Text (尋找全文)"
                 ],
-                answer: "引用文獻報告 (Citation Report)"
+                answer: "Sync (同步)"
             },
             {
-                question: "6. 為了不錯過特定領域頂尖學者 (例如：Dr. Chen) 的最新發表，你應該使用 WOS 的哪個功能來自動接收通知？",
+                question: "6. 當您想與研究夥伴共用某個特定的文獻群組 (Group) 時，Endnote 提供了兩種權限設定，分別是？",
                 options: [
-                    "建立追蹤 (Create Alert)",
-                    "檢視作者個人檔案",
-                    "相關記錄 (Related Records)",
-                    "下載引用文獻報告"
+                    "管理者 (Admin) 與 訪客 (Guest)",
+                    "可讀與可寫 (Read & Write) 與 唯讀 (Read Only)",
+                    "編輯者 (Editor) 與 評論者 (Commenter)",
+                    "公開 (Public) 與 私人 (Private)"
                 ],
-                answer: "建立追蹤 (Create Alert)"
+                answer: "可讀與可寫 (Read & Write) 與 唯讀 (Read Only)"
             }
         ];
 
@@ -423,6 +452,20 @@
         let userPostTestAnswers = {};
 
         // --- 核心功能 ---
+
+        // 清空後測表單
+        function resetPostTestForm() {
+            document.getElementById('post-test-user-id').value = '';
+            document.getElementById('satisfaction-form').reset();
+            // 手動清除 radio button 的選中狀態
+            const radioGroups = ['q1-satisfaction', 'q2-satisfaction'];
+            radioGroups.forEach(groupName => {
+                document.querySelectorAll(`input[name="${groupName}"]`).forEach(radio => {
+                    radio.checked = false;
+                });
+            });
+        }
+
 
         // 頁面切換邏輯
         window.showPage = (pageId) => {
@@ -434,6 +477,7 @@
             if (pageId === 'pre-test-page') {
                 renderQuestions('pre-test-form', false);
             } else if (pageId === 'post-test-page') {
+                resetPostTestForm(); // 在渲染題目之前清空表單
                 renderQuestions('post-test-form', true);
             } else if (pageId === 'admin-page') {
                 renderQuestionBank();
@@ -450,7 +494,7 @@
                 
                 const questionText = document.createElement('p');
                 questionText.className = 'font-semibold mb-4 text-gray-700';
-                questionText.textContent = q.question;
+                questionText.innerHTML = q.question; // Use innerHTML to render backticks as code
                 questionBlock.appendChild(questionText);
 
                 const optionsContainer = document.createElement('div');
@@ -474,7 +518,7 @@
                     radio.value = option;
                     radio.className = 'h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300';
                     const span = document.createElement('span');
-                    span.textContent = option;
+                    span.innerHTML = option; // Use innerHTML to render backticks as code
                     span.className = 'ml-3 text-gray-700';
                     label.appendChild(radio);
                     label.appendChild(span);
@@ -527,7 +571,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
+                await addDoc(collection(db, collectionPath), {
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -583,7 +627,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
+                await addDoc(collection(db, collectionPath), {
                     userId: userId,
                     answers: answers,
                     score: score,
@@ -795,7 +839,7 @@
             let correctCode, targetPage;
 
             if (type === 'post-test') {
-                correctCode = 'WOS2025';
+                correctCode = 'EN2025'; // Updated code for Endnote
                 targetPage = 'post-test-page';
             } else if (type === 'admin') {
                 correctCode = 'admin123';
