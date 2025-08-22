@@ -356,67 +356,67 @@
 
         // --- 題目資料庫 ---
         const questions = [
-            {
-                question: "1. 當你想用自然語言詢問「永續城市」(sustainable city) 的相關研究概念，並快速獲得文獻摘要與重點整理時，應該優先使用哪個功能？",
-                options: [
-                    "Research Assistant",
-                    "引用文獻報告 (Citation Report)",
-                    "進階檢索 (Advanced Search)",
-                    "作者檢索 (Researcher Search)"
-                ],
-                answer: "Research Assistant"
-            },
-            {
-                question: "2. 王同學想知道 2010 年發表的一篇經典論文，在之後被哪些新的研究引用了，他應該點擊該論文頁面的哪個連結？",
-                options: [
-                    "引用文獻 (Times Cited)",
-                    "被引參考文獻 (Cited References)",
-                    "相關記錄 (Related Records)",
-                    "分析結果 (Analyze Results)"
-                ],
-                answer: "引用文獻 (Times Cited)"
-            },
-            {
-                question: "3. 為了縮小檢索範圍，李同學只想看近五年內發表的「評述文章 (Review Article)」，他應該如何操作？",
-                options: [
-                    "使用快速篩選與限縮功能",
-                    "建立引用文獻追蹤",
-                    "查看引用文獻報告",
-                    "直接在檢索框輸入 \"Review Article\""
-                ],
-                answer: "使用快速篩選與限縮功能"
-            },
-            {
-                question: "4. 陳老師想了解「人工智慧」主題中，哪個國家或機構的發表量最多，以便尋找合作對象。她應該使用哪個功能？",
-                options: [
-                    "分析結果 (Analyze Results)",
-                    "研究人員檢索 (Researcher Search)",
-                    "期刊引用報告 (Journal Citation Reports)",
-                    "建立追蹤 (Create Alert)"
-                ],
-                answer: "分析結果 (Analyze Results)"
-            },
-            {
-                question: "5. 林同學想評估「基因編輯」這個研究主題近十年來的整體影響力，例如總發表趨勢與被引用狀況，哪個工具最適合？",
-                options: [
-                    "引用文獻報告 (Citation Report)",
-                    "分析結果 (Analyze Results)",
-                    "作者影響力光束圖 (Author Impact Beamplot)",
-                    "研究助理 (Research Assistant)"
-                ],
-                answer: "引用文獻報告 (Citation Report)"
-            },
-            {
-                question: "6. 為了不錯過特定領域頂尖學者 (例如：Dr. Chen) 的最新發表，你應該使用 WOS 的哪個功能來自動接收通知？",
-                options: [
-                    "建立追蹤 (Create Alert)",
-                    "檢視作者個人檔案",
-                    "相關記錄 (Related Records)",
-                    "下載引用文獻報告"
-                ],
-                answer: "建立追蹤 (Create Alert)"
-            }
-        ];
+  {
+    q: "從資料庫（如 Web of Science、PubMed）將文獻加入 EndNote，最穩定的做法是？",
+    options: [
+      "在資料庫匯出 RIS/EndNote 格式後，於 EndNote 匯入",
+      "把 BibTeX 內容貼到備註欄即可",
+      "直接複製貼上整段參考文獻到 EndNote",
+      "只要下載 PDF，EndNote 會自動建立完整書目"
+    ],
+    answer: 0
+  },
+  {
+    q: "想把 EndNote 的參考文獻插入 Word，且自動帶出文內引註與文末參考文獻，最應該使用？",
+    options: [
+      "Cite While You Write（CWYW）外掛",
+      "把文獻摘要直接貼到 Word",
+      "先複製貼上參考文獻到 Word，再手動編排",
+      "用 EndNote 的「Find Full Text」功能"
+    ],
+    answer: 0
+  },
+  {
+    q: "EndNote 找不到全文（PDF）時，哪個做法最適合？",
+    options: [
+      "改把 DOI 或標題貼到瀏覽器自行搜尋/圖書館管道取得",
+      "把文獻刪掉重建",
+      "只要多按幾次 Find Full Text 就會找到",
+      "把 PDF 名稱改成文章標題即可被辨識"
+    ],
+    answer: 0
+  },
+  {
+    q: "要套用符合期刊規範的參考文獻格式，應該從哪裡選？",
+    options: [
+      "在 Output Styles（輸出樣式）挑選對應期刊或格式",
+      "自行在參考文獻欄位逐一加粗、斜體",
+      "使用「Change Case」調整大小寫即可",
+      "把 Word 的字型改成 Times New Roman 即可"
+    ],
+    answer: 0
+  },
+  {
+    q: "匯入大量文獻後，想快速清理重複紀錄，最合適的做法？",
+    options: [
+      "使用 Find Duplicates（尋找重複）工具比對與合併",
+      "手動逐筆刪除最保險",
+      "重新建立新的 Library",
+      "把排序改成年份由新到舊"
+    ],
+    answer: 0
+  },
+  {
+    q: "若要與同學共同維護參考文獻清單，哪個做法最可靠？",
+    options: [
+      "使用 EndNote Online/Shared Library 共用群組",
+      "把整個 Library 傳給對方覆蓋",
+      "把 .ris 檔寄來寄去",
+      "把書目貼到 Google 文件共同編輯"
+    ],
+    answer: 0
+  }
+];
 
         // --- 全域變數與狀態管理 ---
         let currentPage = 'home-page';
@@ -527,8 +527,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/pre-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
-                    userId: userId,
+                await addDoc(collection(db, collectionPath), { courseId: "course_Endnote", userId: userId,
                     answers: answers,
                     score: score,
                     submittedAt: Timestamp.now()
@@ -583,8 +582,7 @@
 
             try {
                 const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
-                await addDoc(collection(db, collectionPath), { courseId: window.__course_id, 
-                    userId: userId,
+                await addDoc(collection(db, collectionPath), { courseId: "course_Endnote", userId: userId,
                     answers: answers,
                     score: score,
                     satisfaction: satisfactionData,
@@ -795,7 +793,7 @@
             let correctCode, targetPage;
 
             if (type === 'post-test') {
-                correctCode = 'WOS2025';
+                correctCode = 'END2025';
                 targetPage = 'post-test-page';
             } else if (type === 'admin') {
                 correctCode = 'admin123';
