@@ -40,11 +40,47 @@
         <!-- 首頁 -->
         <div id="home-page" class="text-center space-y-8 fade-in">
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <!-- 可愛插圖 (尺寸已縮小) -->
+                <div class="w-full max-w-48 mx-auto mb-4">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 140 Q 50 110 100 120 T 190 130" fill="none" stroke="#a7f3d0" stroke-width="2"/>
+                        <path d="M5 130 Q 55 100 105 110 T 195 120" fill="none" stroke="#bae6fd" stroke-width="2"/>
+                        <circle cx="40" cy="90" r="20" fill="#fde68a"/>
+                        <circle cx="40" cy="90" r="15" fill="#fcd34d"/>
+                        <g transform="translate(130 60)">
+                            <path d="M 0 0 L 40 0 L 40 60 L 0 60 Z" fill="#d1d5db" rx="5"/>
+                            <path d="M 5 5 L 35 5 L 35 55 L 5 55 Z" fill="#fff" rx="3"/>
+                            <rect x="10" y="10" width="20" height="5" fill="#3b82f6" rx="2"/>
+                            <rect x="10" y="20" width="15" height="3" fill="#9ca3af" rx="1"/>
+                            <rect x="10" y="28" width="20" height="3" fill="#9ca3af" rx="1"/>
+                            <rect x="10" y="36" width="18" height="3" fill="#9ca3af" rx="1"/>
+                        </g>
+                        <g transform="translate(20 100)">
+                            <path d="M10 30 C 15 10, 35 10, 40 30" fill="#f9a8d4"/>
+                            <circle cx="25" cy="15" r="15" fill="#fbcfe8"/>
+                            <circle cx="20" cy="15" r="2" fill="#4b5563"/>
+                            <circle cx="30" cy="15" r="2" fill="#4b5563"/>
+                            <path d="M 22 22 Q 25 25 28 22" stroke="#4b5563" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                         <g transform="translate(90 95)">
+                            <path d="M10 30 C 15 10, 35 10, 40 30" fill="#a5b4fc"/>
+                            <circle cx="25" cy="15" r="15" fill="#c7d2fe"/>
+                            <circle cx="20" cy="15" r="2" fill="#4b5563"/>
+                            <circle cx="30" cy="15" r="2" fill="#4b5563"/>
+                            <path d="M 22 22 Q 25 20 28 22" stroke="#4b5563" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </div>
                 <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Web of Science 利用教育課程</h1>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的測驗。您的填答將做為我們未來改善課程的依據。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                        </svg>
+                    </div>
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">課程前測</h2>
                     <p class="text-gray-600 mb-6">在課程開始前，請先完成此份測驗，幫助我們了解您對資料庫的既有認識。</p>
                     <button onclick="showPage('pre-test-page')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
@@ -52,6 +88,11 @@
                     </button>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">課程後測 & 滿意度調查</h2>
                     <p class="text-gray-600 mb-6">在課程結束後，請完成此份測驗與問卷，以評估您的學習成果與課程滿意度。</p>
                     <button onclick="promptForCode('post-test')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">
@@ -151,8 +192,7 @@
                         </div>
                     </div>
                     
-                    <!-- Q1 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q1-satisfaction -->
-<div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
@@ -166,11 +206,10 @@
                             <span>非常不同意</span>
                         </div>
                     </div>
-                     <!-- Q2 滿意度題：左側「非常同意」→右側「非常不同意」，按鈕由左到右值 5,4,3,2,1。若要改此題，請搜尋 q2-satisfaction -->
-<div class="bg-gray-50 p-4 rounded-lg">
+                     <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
-                            <span>非常同意</span>
+                           <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
                                 <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
                                 <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
@@ -326,8 +365,7 @@
 
     </div>
 
-    <script src="./config.js"></script>
-<script type="module">
+    <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -359,65 +397,67 @@
 
         // --- 題目資料庫 ---
         const questions = [
+            // --- 功能面向題目 ---
             {
-                question: "1. 當你想用自然語言詢問「永續城市」(sustainable city) 的相關研究概念，並快速獲得文獻摘要與重點整理時，應該優先使用哪個功能？",
+                question: "1. Web of Science 的「引用文獻網路」 (Citation Network) 核心價值是什麼？",
                 options: [
-                    "Research Assistant",
-                    "引用文獻報告 (Citation Report)",
-                    "進階檢索 (Advanced Search)",
-                    "作者檢索 (Researcher Search)"
+                    "僅提供單篇論文被引用次數的量化統計數據。",
+                    "追溯研究起源、發現後續發展並拓展相關領域。",
+                    "提供自動化功能以下載所有參考文獻的全文。",
+                    "是一個專門用來尋找同一位作者所有文章的工具。"
                 ],
-                answer: "Research Assistant"
+                answer: "追溯研究起源、發現後續發展並拓展相關領域。"
             },
             {
-                question: "2. 王同學想知道 2010 年發表的一篇經典論文，在之後被哪些新的研究引用了，他應該點擊該論文頁面的哪個連結？",
+                question: "2. 使用「分析結果」(Analyze Results) 功能，主要是為了解決什麼問題？",
                 options: [
-                    "引用文獻 (Times Cited)",
-                    "被引參考文獻 (Cited References)",
-                    "相關記錄 (Related Records)",
-                    "分析結果 (Analyze Results)"
+                    "提供閱讀單篇論文摘要與關鍵字的介面。",
+                    "內建文法檢查工具以修正論文中的語法錯誤。",
+                    "快速洞察一個研究領域的宏觀趨勢與主要貢獻者。",
+                    "整理特定期刊的投稿格式與詳細說明文件。"
                 ],
-                answer: "引用文獻 (Times Cited)"
+                answer: "快速洞察一個研究領域的宏觀趨勢與主要貢獻者。"
             },
             {
-                question: "3. 為了縮小檢索範圍，李同學只想看近五年內發表的「評述文章 (Review Article)」，他應該如何操作？",
+                question: "3. 查看一位研究人員的「作者檔案」(Author Record) 與其「影響力光束圖」(Beamplot)，主要能帶來什麼幫助？",
                 options: [
-                    "使用快速篩選與限縮功能",
-                    "建立引用文獻追蹤",
-                    "查看引用文獻報告",
-                    "直接在檢索框輸入 \"Review Article\""
+                    "直接取得該學者的個人聯絡 email 以便學術交流。",
+                    "詳細了解該學者所有正在進行中或未發表的研究。",
+                    "提供一個快速通道，申請成為該學者的同儕審稿人。",
+                    "快速評估該學者的長期學術影響力與論文表現。"
                 ],
-                answer: "使用快速篩選與限縮功能"
+                answer: "快速評估該學者的長期學術影響力與論文表現。"
+            },
+            // --- 操作面向題目 ---
+            {
+                question: "4. 你想在「機器學習」領域中，找到近兩年內發表、且近期被大量引用的「潛力股」論文，最直接的操作方式是？",
+                options: [
+                    "檢索後，將結果依「被引用次數：最高優先」排序。",
+                    "檢索後，使用快速篩選中的「熱門論文」(Hot Papers)。",
+                    "使用「作者檢索」尋找該領域的權威學者。",
+                    "查看「引用文獻報告」。"
+                ],
+                answer: "檢索後，使用快速篩選中的「熱門論文」(Hot Papers)。"
             },
             {
-                question: "4. 陳老師想了解「人工智慧」主題中，哪個國家或機構的發表量最多，以便尋找合作對象。她應該使用哪個功能？",
+                question: "5. 如果你想追蹤一位特定作者 (例如 Dr. Lee) 的所有最新文章，並在有新文章發表時收到郵件通知，你應該如何操作？",
                 options: [
-                    "分析結果 (Analyze Results)",
-                    "研究人員檢索 (Researcher Search)",
-                    "期刊引用報告 (Journal Citation Reports)",
-                    "建立追蹤 (Create Alert)"
+                    "每天手動檢索一次 Dr. Lee 的名字。",
+                    "在 Google 設定關鍵字快訊。",
+                    "檢索該作者，進入其作者檔案，並點擊「建立追蹤」(Create Alert)。",
+                    "寫信給期刊出版社要求通知。"
                 ],
-                answer: "分析結果 (Analyze Results)"
+                answer: "檢索該作者，進入其作者檔案，並點擊「建立追蹤」(Create Alert)。"
             },
             {
-                question: "5. 林同學想評估「基因編輯」這個研究主題近十年來的整體影響力，例如總發表趨勢與被引用狀況，哪個工具最適合？",
+                question: "6. 你想要尋找關於「糧食安全」(food security) 和「氣候變遷」(climate change) 兩者兼具的研究，在檢索框中應該如何輸入？",
                 options: [
-                    "引用文獻報告 (Citation Report)",
-                    "分析結果 (Analyze Results)",
-                    "作者影響力光束圖 (Author Impact Beamplot)",
-                    "研究助理 (Research Assistant)"
+                    "food security AND climate change",
+                    "food security OR climate change",
+                    "food security NOT climate change",
+                    "\"food security climate change\""
                 ],
-                answer: "引用文獻報告 (Citation Report)"
-            },
-            {
-                question: "6. 為了不錯過特定領域頂尖學者 (例如：Dr. Chen) 的最新發表，你應該使用 WOS 的哪個功能來自動接收通知？",
-                options: [
-                    "建立追蹤 (Create Alert)",
-                    "檢視作者個人檔案",
-                    "相關記錄 (Related Records)",
-                    "下載引用文獻報告"
-                ],
-                answer: "建立追蹤 (Create Alert)"
+                answer: "food security AND climate change"
             }
         ];
 
