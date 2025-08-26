@@ -333,7 +333,7 @@
                 </div>
             </div>
         </div>
-<script src="./config.js"></script>
+
         <!-- 驗證碼輸入框 -->
         <div id="prompt-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
             <div class="relative mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
@@ -352,7 +352,7 @@
         </div>
 
     </div>
-
+<script src="./config.js"></script>
 <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -386,64 +386,70 @@
         // --- 題目資料庫 ---
         const questions = [
             {
-                question: "1. 根據課程內容，使用 Endnote 的「PDF匯入」功能來自動建立書目資料時，成功的關鍵前提通常是什麼？",
-                options: [
-                    "PDF 檔案的檔名必須包含作者姓名。",
-                    "該 PDF 檔案必須是彩色的掃描檔。",
-                    "PDF 文件的前兩頁內需包含可供線上比對的 DOI (數位物件識別碼)。",
-                    "只需要將 PDF 檔案拖曳至 Endnote，系統皆能百分之百成功解析。"
-                ],
-                answer: "PDF 文件的前兩頁內需包含可供線上比對的 DOI (數位物件識別碼)。"
-            },
-            {
-                question: "2. 在 Word 中使用 Endnote 撰寫論文時，若發現某一個引註的作者姓名拼錯了（例如，將 Miller 誤植為 Muller），最正確的處理方式是什麼？",
-                options: [
-                    "直接在 Word 的引註文字上修改，將 Muller 改為 Miller。",
-                    "在 Word 文件末端的參考書目清單中找到該筆文獻，直接修改後再更新。",
-                    "必須回到 Endnote Library 中，找到該筆文獻的原始資料進行修正，再回到 Word 更新引文。",
-                    "重新從資料庫匯入正確的書目資料，並在 Word 中刪除舊的引註，再插入新的。"
-                ],
-                answer: "必須回到 Endnote Library 中，找到該筆文獻的原始資料進行修正，再回到 Word 更新引文。"
-            },
-            {
-                question: "3. 為了完整備份或方便轉移 Endnote Library，課程中建議使用哪一項功能，能將 .enl 檔案與 .data 資料夾壓縮成單一個 .enlx 檔案？",
+                // 功能面向 1
+                question: "1. 當您完成一份重要的論文，希望將整個 Endnote 書目庫（包含所有書目資料與夾帶的 PDF 檔案）完整備份成一個獨立檔案，以便日後還原或繳交給指導教授時，最適合使用哪一項功能？",
                 options: [
                     "Sync (同步)",
-                    "Save a Copy (另存複本)",
-                    "Export (匯出)",
-                    "Compress Library (壓縮書目庫)"
+                    "Share Library (分享書目庫)",
+                    "Compress Library (.enlx) (壓縮書目庫)",
+                    "Save a Copy (另存複本)"
                 ],
-                answer: "Compress Library (壓縮書目庫)"
+                answer: "Compress Library (.enlx) (壓縮書目庫)"
             },
             {
-                question: "4. 在 Word 文件中插入引文後，若要將 `(Wang, 2023)` 修改為包含頁碼的 `(Wang, 2023, p. 45)`，最正確的操作方式是什麼？",
+                // 功能面向 2
+                question: "2. 王同學正在撰寫一篇關於「人工智能」的報告，他希望 Endnote 能建立一個群組，未來只要有任何從資料庫匯入的文獻，其標題或關鍵字中含有「人工智能」或「AI」，都能『自動』被歸類進去，請問他應該使用何種群組功能？",
                 options: [
-                    "直接在 Word 的括號內手動輸入 \", p. 45\"。",
-                    "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Pages` 欄位中輸入 \"45\"。",
-                    "回到 Endnote Library 中，在該筆文獻的 Notes 欄位加上頁碼。",
-                    "刪除該引文，重新從 Endnote 中找到該文獻再次插入。"
+                    "Group (一般群組)",
+                    "Smart Group (智慧群組)",
+                    "From Groups (集合群組)",
+                    "Tags (標籤)"
                 ],
-                answer: "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Pages` 欄位中輸入 \"45\"。"
+                answer: "Smart Group (智慧群組)"
             },
             {
-                question: "5. 若希望能在不同電腦或裝置間存取同一個 Endnote Library，需要先註冊一組 Endnote 個人化帳號，並使用哪一項核心功能？",
+                // 功能面向 3
+                question: "3. 李同學使用 `Sync` (同步) 功能將他宿舍電腦的 Endnote Library 與 Endnote Online 保持一致。而張同學使用 `Share Library` (分享書目庫) 功能將他的 Library 分享給指導教授。請問這兩種功能最主要的**區別**是什麼？",
                 options: [
-                    "Share Group (分享群組)",
-                    "Cite While You Write (隨寫即引)",
-                    "Sync (同步)",
-                    "Find Full Text (尋找全文)"
+                    "`Sync` 是單向的，只能從電腦上傳到雲端；`Share Library` 則是雙向的。",
+                    "`Sync` 主要用於個人在多台裝置間同步整個書目庫；`Share Library` 則是用於多人協作，可以設定不同權限。",
+                    "`Sync` 會消耗個人的雲端儲存空間；`Share Library` 則是使用學校提供的無限空間。",
+                    "`Sync` 只能同步書目資料，無法同步 PDF 附件；`Share Library` 則兩者皆可。"
                 ],
-                answer: "Sync (同步)"
+                answer: "`Sync` 主要用於個人在多台裝置間同步整個書目庫；`Share Library` 則是用於多人協作，可以設定不同權限。"
             },
             {
-                question: "6. 當您想與研究夥伴共用某個特定的文獻群組 (Group) 時，Endnote 提供了兩種權限設定，分別是？",
+                // 操作面向 1
+                question: "4. 在 Word 中插入多筆引文後，呈現為 `(Chen, 2022; Lee, 2023; Wang, 2021)`。若您希望在此引文的最前方加上一段通用文字，使其顯示為 `(例如, Chen, 2022; Lee, 2023; Wang, 2021)`，應如何操作？",
                 options: [
-                    "管理者 (Admin) 與 訪客 (Guest)",
-                    "可讀與可寫 (Read & Write) 與 唯讀 (Read Only)",
-                    "編輯者 (Editor) 與 評論者 (Commenter)",
-                    "公開 (Public) 與 私人 (Private)"
+                    "直接在 Word 文件的括號前手動輸入「例如,」。",
+                    "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Prefix` (字首) 欄位中輸入「例如, 」。",
+                    "回到 Endnote Library，將這三筆文獻的摘要欄位都加上「例如,」。",
+                    "選擇 `Convert to Plain Text` 後再手動修改。"
                 ],
-                answer: "可讀與可寫 (Read & Write) 與 唯讀 (Read Only)"
+                answer: "在該引文上按右鍵，選擇 `Edit Citation(s)`，並在 `Prefix` (字首) 欄位中輸入「例如, 」。"
+            },
+            {
+                // 操作面向 2
+                question: "5. 您的論文初稿使用 APA 7th 格式，但投稿時期刊要求改為 `Vancouver` 格式。請問在 Word 中，您應該在哪個位置進行最快速的切換？",
+                options: [
+                    "在 `File` > `Options` 中修改文件範本。",
+                    "在 Endnote 工具列的 `Style` 下拉選單中選擇 `Vancouver`。",
+                    "將整份文件複製到新的 Word 檔，並重新插入所有引文。",
+                    "使用 `Edit & Manage Citation(s)` 功能逐一修改每筆引文。"
+                ],
+                answer: "在 Endnote 工具列的 `Style` 下拉選單中選擇 `Vancouver`。"
+            },
+            {
+                // 操作面向 3
+                question: "6. 當您要將含有 Endnote 引文的 Word 論文最終版本寄給出版社或老師時，為了確保對方在沒有安裝 Endnote 的情況下也能正常開啟與編輯，並移除所有動態連結參數，您應該執行哪個操作？",
+                options: [
+                    "Update Citations and Bibliography (更新引文與書目)",
+                    "Convert to Unformatted Citations (轉換為無格式引文)",
+                    "Convert to Plain Text (轉換為純文字)",
+                    "Export to Endnote (匯出至 Endnote)"
+                ],
+                answer: "Convert to Plain Text (轉換為純文字)"
             }
         ];
 
