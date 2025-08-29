@@ -191,6 +191,18 @@
                             <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                         </div>
                     </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <label class="block text-gray-700 font-bold mb-2">請問您參加本次課程的動機為何？ (可複選)</label>
+                        <div id="motivation-checkboxes" class="space-y-2 mt-2">
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="提升論文寫作與研究能力" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">提升論文寫作與研究能力</span></label>
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="增進個人專業知能" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">增進個人專業知能</span></label>
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="對目前/未來工作有助益" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">對目前/未來工作有助益</span></label>
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="老師推薦/課程要求" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">老師推薦/課程要求</span></label>
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="對主題感興趣" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">對主題感興趣</span></label>
+                            <label class="flex items-center"><input type="checkbox" name="motivation" value="其他" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">其他</span></label>
+                        </div>
+                    </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
@@ -305,6 +317,7 @@
                                     <th scope="col" class="px-4 py-3">身分</th>
                                     <th scope="col" class="px-4 py-3">學院/單位</th>
                                     <th scope="col" class="px-4 py-3">系所</th>
+                                    <th scope="col" class="px-4 py-3">參加動機</th>
                                     <th scope="col" class="px-4 py-3">滿意度1</th>
                                     <th scope="col" class="px-4 py-3">滿意度2</th>
                                     <th scope="col" class="px-4 py-3">建議</th>
@@ -364,7 +377,7 @@
         </div>
 
     </div>
- <script src="./config.js"></script>
+<script src="./config.js"></script>
     <script type="module">
         // 匯入 Firebase 模組
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -613,11 +626,15 @@
             userPostTestAnswers = answers; // 儲存使用者答案以供結果頁面使用
             const score = calculateScore(answers);
 
+            const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
+            const motivation = Array.from(motivationCheckboxes).map(cb => cb.value).join(', ');
+
             const satisfactionData = {
                 gender: document.getElementById('gender').value,
                 status: document.getElementById('status').value,
                 college: document.getElementById('college').value,
                 department: document.getElementById('department').value,
+                motivation: motivation,
                 satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
                 satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
                 feedback: document.getElementById('feedback').value,
@@ -669,7 +686,7 @@
             const isPreTest = collectionName === 'pre-test-submissions';
             const tableBodyId = isPreTest ? 'pre-test-results-body' : 'post-test-results-body';
             const tableBody = document.getElementById(tableBodyId);
-            const colspan = isPreTest ? 9 : 17;
+            const colspan = isPreTest ? 9 : 18;
             tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
 
             try {
@@ -707,6 +724,7 @@
                             <td class="px-4 py-2">${data.satisfaction.status || ''}</td>
                             <td class="px-4 py-2">${data.satisfaction.college || ''}</td>
                             <td class="px-4 py-2">${data.satisfaction.department || ''}</td>
+                            <td class="px-4 py-2">${data.satisfaction.motivation || ''}</td>
                             <td class="px-4 py-2">${data.satisfaction.satisfaction1 || ''}</td>
                             <td class="px-4 py-2">${data.satisfaction.satisfaction2 || ''}</td>
                             <td class="px-4 py-2">${data.satisfaction.feedback || ''}</td>
