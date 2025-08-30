@@ -19,7 +19,7 @@
 
   // **很重要**：這個會決定 Firestore 路徑 artifacts/{appId}/...
   // 改成 EndNote 專用，不要跟 WOS 混在一起
-  window.__app_id = "default-endnote-quiz";
+  window.__app_id = "endnote-quiz-prod";
 
   // 如果沒用自定義登入，保持 null 走匿名登入
   window.__initial_auth_token = null;
