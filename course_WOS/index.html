@@ -460,6 +460,14 @@
             1: "未學"
         };
         
+        const likertScaleFull = {
+            5: "精通 (能獨立流暢完成，並清楚解釋)",
+            4: "熟悉 (大致可完成，但需參考說明)",
+            3: "尚可 (需引導，部分功能不熟悉)",
+            2: "略懂 (知道功能，但不清楚如何使用)",
+            1: "未學 (從未聽過此功能)"
+        };
+        
         // --- 全域變數與狀態管理 ---
         let currentPage = 'home-page';
         let userPostTestRatings = {};
@@ -629,14 +637,14 @@
             container.innerHTML = '';
             assessmentItems.forEach((item, index) => {
                 const userRatingValue = userPostTestRatings[`q${index+1}`];
-                const userRatingText = likertScale[userRatingValue] || '未評估';
+                const userRatingFullText = likertScaleFull[userRatingValue] || '未評估';
 
                 const resultBlock = document.createElement('div');
                 resultBlock.className = `p-4 rounded-lg bg-blue-50 border-l-4 border-blue-500`;
                 
                 resultBlock.innerHTML = `
                     <p class="font-bold text-gray-800 mb-2">${index + 1}. ${item}</p>
-                    <p class="text-sm text-blue-700">您的評估：${userRatingValue} - ${userRatingText}</p>
+                    <p class="text-sm text-blue-700">您的評估：${userRatingFullText}</p>
                 `;
                 container.appendChild(resultBlock);
             });
@@ -833,3 +841,4 @@
     </script>
 </body>
 </html>
+
