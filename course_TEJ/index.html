@@ -464,8 +464,7 @@
         
         // --- 全域變數與狀態管理 ---
         let currentPage = 'home-page';
-        let userPostTestRatings = {};
-
+        
         // --- 核心功能 ---
 
         // 頁面切換邏輯
@@ -587,8 +586,6 @@
                 return;
             }
             
-            userPostTestRatings = ratings; 
-
             const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
             const motivation = Array.from(motivationCheckboxes).map(cb => cb.value).join(', ');
 
@@ -613,7 +610,7 @@
                     satisfaction: satisfactionData,
                     submittedAt: Timestamp.now()
                 });
-                renderResults();
+                renderResults(ratings); // Pass ratings to render function
                 showPage('results-page');
                 document.getElementById('post-test-form').reset();
                 document.getElementById('satisfaction-form').reset();
@@ -625,11 +622,11 @@
         };
         
         // 渲染結果頁面 (僅顯示使用者答案)
-        function renderResults() {
+        function renderResults(ratings) {
             const container = document.getElementById('results-container');
             container.innerHTML = '';
             assessmentItems.forEach((item, index) => {
-                const userRatingValue = userPostTestRatings[`q${index+1}`];
+                const userRatingValue = ratings[`q${index+1}`];
                 const userRatingText = likertScale[userRatingValue] || '未評估';
 
                 const resultBlock = document.createElement('div');
@@ -639,6 +636,7 @@
                     <p class="font-bold text-gray-800 mb-2">${index + 1}. ${item}</p>
                     <p class="text-sm text-blue-700">您的評估：<span class="font-semibold">${userRatingText}</span></p>
                 `;
+                container.appendChild(resultBlock);
             });
         }
 
