@@ -619,7 +619,7 @@
             
             resultBlock.innerHTML = `
                 <p class="font-bold text-gray-800 mb-2">${index + 1}. ${item}</p>
-                <p class="text-sm text-blue-700">您的評估：<span class="font-semibold">${userRatingText.split('(')[0].trim()}</span></p>
+                <p class="text-sm text-blue-700">您的評估：<span class="font-semibold">${userRatingText}</span></p>
             `;
             container.appendChild(resultBlock);
         });
@@ -784,8 +784,8 @@
         if (type === 'post-test') {
             correctCode = 'JCR2025';
             targetPage = 'post-test-page';
-        } else if (type === 'admin123') {
-            correctCode = 'sculib_admin';
+        } else if (type === 'admin') {
+            correctCode = 'admin123';
             targetPage = 'admin-page';
         }
 
