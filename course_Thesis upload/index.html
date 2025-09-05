@@ -274,6 +274,13 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">9. 您下次希望參加的課程內容為何?</label>
                         <textarea id="future-topics" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
                     </div>
+                    <div>
+                         <div class="bg-green-50 p-4 rounded-lg">
+                            <label class="block text-gray-700 font-bold mb-2">10. 成為圖書館之友，掌握第一手活動訊息！</label>
+                            <p class="text-gray-600 text-sm mb-3">若您願意收到圖書館未來舉辦的各類課程、講座與活動通知，歡迎留下您常用的 Email，讓我們將最新資訊直送給您。</p>
+                            <input type="email" id="user-email" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="請在此輸入您的 Email">
+                        </div>
+                    </div>
                 </form>
 
                 <div class="mt-8 flex justify-between items-center">
@@ -355,6 +362,7 @@
                                     <th scope="col" class="px-4 py-3">滿意度2</th>
                                     <th scope="col" class="px-4 py-3">建議</th>
                                     <th scope="col" class="px-4 py-3">未來主題</th>
+                                    <th scope="col" class="px-4 py-3">Email</th>
                                 </tr>
                             </thead>
                             <tbody id="post-test-results-body"></tbody>
@@ -610,6 +618,7 @@
             satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
             feedback: document.getElementById('feedback').value,
             futureTopics: document.getElementById('future-topics').value,
+            userEmail: document.getElementById('user-email').value,
         };
 
         try {
@@ -644,7 +653,7 @@
             
             resultBlock.innerHTML = `
                 <p class="font-bold text-gray-800 mb-2">${index + 1}. ${item}</p>
-                <p class="text-sm text-blue-700">您的評估：<span class="font-semibold">${userRatingText.split('(')[0].trim()}</span></p>
+                <p class="text-sm text-blue-700">您的評估：<span class="font-semibold">${userRatingText}</span></p>
             `;
             container.appendChild(resultBlock);
         });
@@ -657,7 +666,7 @@
         const isPreTest = collectionName === 'pre-test-submissions';
         const tableBodyId = isPreTest ? 'pre-test-results-body' : 'post-test-results-body';
         const tableBody = document.getElementById(tableBodyId);
-        const colspan = isPreTest ? 8 : 17; 
+        const colspan = isPreTest ? 8 : 18; 
         tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
 
         try {
@@ -701,6 +710,7 @@
                         <td class="px-4 py-2 text-center">${data.satisfaction.satisfaction2 || ''}</td>
                         <td class="px-4 py-2">${data.satisfaction.feedback || ''}</td>
                         <td class="px-4 py-2">${data.satisfaction.futureTopics || ''}</td>
+                        <td class="px-4 py-2">${data.satisfaction.userEmail || ''}</td>
                     `;
                 }
                 tableBody.appendChild(row);
