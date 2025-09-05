@@ -42,17 +42,16 @@
             <div class="bg-white px-8 pt-4 pb-8 rounded-2xl shadow-lg border border-gray-200">
                 <!-- 可愛插圖 -->
                 <div class="w-full max-w-40 mx-auto mb-2">
-                     <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 50 130 Q 100 150 150 130" stroke="#a0aec0" stroke-width="4" fill="none" stroke-linecap="round"/>
-                        <circle cx="75" cy="85" r="8" fill="#4a5568"/>
-                        <circle cx="125" cy="85" r="8" fill="#4a5568"/>
-                        <path d="M65 80 Q 75 70, 85 80" stroke="#4a5568" stroke-width="3" fill="none"/>
-                        <path d="M115 80 Q 125 70, 135 80" stroke="#4a5568" stroke-width="3" fill="none"/>
-                        <rect x="30" y="40" width="140" height="100" rx="15" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2"/>
-                        <path d="M 90 20 L 110 20 A 5 5 0 0 1 115 25 L 115 40 L 85 40 L 85 25 A 5 5 0 0 1 90 20 Z" fill="#4a5568"/>
-                        <path d="M 95 10 L 105 10 L 105 20 L 95 20 Z" fill="#718096"/>
-                        <path d="M 100 10 L 100 5" stroke="#718096" stroke-width="3"/>
-                        <path d="M 60 105 Q 100 125 140 105" stroke="#4299e1" stroke-width="4" fill="none" stroke-linecap="round"/>
+                     <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Speech bubble -->
+                        <path d="M30 40 a 20 20 0 0 1 20 -20 h 100 a 20 20 0 0 1 20 20 v 80 a 20 20 0 0 1 -20 20 h -40 l -20 20 v -20 h -40 a 20 20 0 0 1 -20 -20 z" fill="#e0e7ff" stroke="#c7d2fe" stroke-width="3"></path>
+                        <!-- Star inside -->
+                        <g transform="translate(100 80) scale(0.35)">
+                          <polygon points="100,10 40,198 190,78 10,78 160,198" fill="#818cf8" stroke="#6366f1" stroke-width="8" stroke-linejoin="round"></polygon>
+                        </g>
+                        <!-- Small decorative checkmarks -->
+                        <path d="M 35 150 l 5 5 l 10 -10" stroke="#a5b4fc" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M 155 45 l 5 5 l 10 -10" stroke="#a5b4fc" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
                     </svg>
                 </div>
                 <h1 class="text-3xl sm:text-4xl font-bold text-indigo-600 mb-4">專題講座滿意度調查</h1>
@@ -519,7 +518,7 @@
         const input = document.getElementById('prompt-input');
         const error = document.getElementById('prompt-error');
         
-        if (input.value === 'admin123') { // 管理員密碼
+        if (input.value === 'admin1234') { // 管理員密碼
             document.getElementById('prompt-modal').classList.add('hidden');
             showPage('admin-page');
         } else {
