@@ -290,6 +290,8 @@
         appId: "YOUR_APP_ID"
     };
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'lecture-satisfaction-survey';
+// 選擇儲存路徑模式：'flat' 會將資料寫到根集合 'data'，'scoped' 會寫到 artifacts/{appId}/public/data
+const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     // 初始化 Firebase
@@ -362,7 +364,9 @@
         };
 
         try {
-            const collectionPath = `artifacts/${appId}/public/data/lecture-satisfaction-submissions`;
+            const collectionPath = STORAGE_MODE === 'flat'
+  ? `data/lecture-satisfaction-submissions`
+  : `artifacts/${appId}/public/data/lecture-satisfaction-submissions`;
             await addDoc(collection(db, collectionPath), {
                 ...surveyData,
                 submittedAt: Timestamp.now()
@@ -399,7 +403,9 @@
         tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
 
         try {
-            const collectionPath = `artifacts/${appId}/public/data/${collectionName}`;
+            const collectionPath = STORAGE_MODE === 'flat'
+  ? `data/${collectionName}`
+  : `artifacts/${appId}/public/data/${collectionName}`;
             const q = query(collection(db, collectionPath), orderBy("submittedAt", "desc"));
             const querySnapshot = await getDocs(q);
             
