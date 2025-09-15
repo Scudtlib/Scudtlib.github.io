@@ -78,8 +78,8 @@
 
                 <form id="satisfaction-form" class="space-y-8 mt-8">
                      <div class="mb-6">
-                        <label for="survey-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 (選填)</label>
-                        <input type="text" id="survey-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <label for="survey-user-id" class="block text-gray-700 text-sm font-bold mb-2">學號 / 人事代碼 <span class="text-red-500">*</span></label>
+                        <input type="text" id="survey-user-id" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
                     </div>
                 
                     <!-- 基本資料 -->
@@ -272,7 +272,6 @@
         </div>
 
     </div>
-<script src="./config.js"></script>
 <script type="module">
     // 匯入 Firebase 模組
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -290,8 +289,6 @@
         appId: "YOUR_APP_ID"
     };
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'lecture-satisfaction-survey';
-// 選擇儲存路徑模式：'flat' 會將資料寫到根集合 'data'，'scoped' 會寫到 artifacts/{appId}/public/data
-const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     // 初始化 Firebase
@@ -331,6 +328,13 @@ const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
     
     // 提交問卷
     window.submitSurvey = async () => {
+        // 檢查必填的學號/人事代碼
+        const userId = document.getElementById('survey-user-id').value.trim();
+        if (!userId) {
+            showMessage('提醒', '請填寫您的學號或人事代碼。', 'error');
+            return;
+        }
+
         // 檢查必填的滿意度問題
         const satisfaction1 = document.querySelector('input[name="q1-satisfaction"]:checked');
         const satisfaction2 = document.querySelector('input[name="q2-satisfaction"]:checked');
@@ -350,7 +354,7 @@ const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
         }
 
         const surveyData = {
-            userId: document.getElementById('survey-user-id').value.trim(),
+            userId: userId,
             gender: document.getElementById('gender').value,
             status: document.getElementById('status').value,
             college: document.getElementById('college').value,
@@ -364,9 +368,7 @@ const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
         };
 
         try {
-            const collectionPath = STORAGE_MODE === 'flat'
-  ? `data/lecture-satisfaction-submissions`
-  : `artifacts/${appId}/public/data/lecture-satisfaction-submissions`;
+            const collectionPath = `artifacts/${appId}/public/data/lecture-satisfaction-submissions`;
             await addDoc(collection(db, collectionPath), {
                 ...surveyData,
                 submittedAt: Timestamp.now()
@@ -403,9 +405,7 @@ const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
         tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
 
         try {
-            const collectionPath = STORAGE_MODE === 'flat'
-  ? `data/${collectionName}`
-  : `artifacts/${appId}/public/data/${collectionName}`;
+            const collectionPath = `artifacts/${appId}/public/data/${collectionName}`;
             const q = query(collection(db, collectionPath), orderBy("submittedAt", "desc"));
             const querySnapshot = await getDocs(q);
             
@@ -524,7 +524,7 @@ const STORAGE_MODE = 'flat'; // 'flat' or 'scoped'
         const input = document.getElementById('prompt-input');
         const error = document.getElementById('prompt-error');
         
-        if (input.value === 'admin123') { // 管理員密碼
+        if (input.value === 'admin1234') { // 管理員密碼
             document.getElementById('prompt-modal').classList.add('hidden');
             showPage('admin-page');
         } else {
