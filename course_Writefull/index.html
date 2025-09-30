@@ -254,11 +254,11 @@
 
 
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <label><input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
+                                <label><input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500" required></label>
                                 <label><input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
                                 <label><input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
                                 <label><input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
@@ -268,11 +268,11 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <label><input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
+                                <label><input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500" required></label>
                                 <label><input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
                                 <label><input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
                                 <label><input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"></label>
@@ -620,6 +620,15 @@
             return;
         }
         
+        // 檢查必填的滿意度問題
+        const satisfaction1 = document.querySelector('input[name="q1-satisfaction"]:checked');
+        const satisfaction2 = document.querySelector('input[name="q2-satisfaction"]:checked');
+
+        if (!satisfaction1 || !satisfaction2) {
+            showMessage('錯誤', '請完成滿意度調查的第 6 和第 7 題 (必填) 後再提交。', 'error');
+            return;
+        }
+
         // 收集動機資料
         const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
         let motivations = Array.from(motivationCheckboxes).map(cb => cb.value);
@@ -635,8 +644,8 @@
             college: document.getElementById('college').value,
             department: document.getElementById('department').value,
             motivation: motivations.join(', '), // 將動機陣列轉換為字串
-            satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
-            satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
+            satisfaction1: satisfaction1.value,
+            satisfaction2: satisfaction2.value,
             feedback: document.getElementById('feedback').value,
             futureTopics: document.getElementById('future-topics').value,
             userEmail: document.getElementById('user-email').value,
