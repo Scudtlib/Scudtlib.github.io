@@ -233,11 +233,11 @@
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5" required>
                                 <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5">
                                 <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5">
                                 <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5">
@@ -247,11 +247,11 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5">
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5" required>
                                 <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5">
                                 <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5">
                                 <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5">
@@ -591,7 +591,16 @@
                 return;
             }
             
-            userPostTestRatings = ratings; 
+            userPostTestRatings = ratings;
+
+            // 驗證滿意度調查的必填項目
+            const satisfaction1 = document.querySelector('input[name="q1-satisfaction"]:checked');
+            const satisfaction2 = document.querySelector('input[name="q2-satisfaction"]:checked');
+
+            if (!satisfaction1 || !satisfaction2) {
+                showMessage('錯誤', '請完成滿意度調查的第 1、2 題必填項目。', 'error');
+                return;
+            }
 
             const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
             const motivation = Array.from(motivationCheckboxes).map(cb => cb.value).join(', ');
@@ -602,8 +611,8 @@
                 college: document.getElementById('college').value,
                 department: document.getElementById('department').value,
                 motivation: motivation,
-                satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
-                satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
+                satisfaction1: satisfaction1.value,
+                satisfaction2: satisfaction2.value,
                 feedback: document.getElementById('feedback').value,
                 futureTopics: document.getElementById('future-topics').value,
                 emailSubscription: document.getElementById('email-subscription').value.trim()
@@ -838,4 +847,3 @@
     </script>
 </body>
 </html>
-
