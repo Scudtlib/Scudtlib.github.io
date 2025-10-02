@@ -233,7 +233,7 @@
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -247,7 +247,7 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -607,6 +607,11 @@
             futureTopics: document.getElementById('future-topics').value,
             userEmail: document.getElementById('user-email').value,
         };
+        
+        if (!satisfactionData.satisfaction1 || !satisfactionData.satisfaction2) {
+            showMessage('錯誤', '請完成滿意度調查的第一、二題後再提交。', 'error');
+            return;
+        }
 
         try {
             const collectionPath = `artifacts/${appId}/public/data/post-test-submissions`;
@@ -804,7 +809,7 @@
         let correctCode, targetPage;
 
         if (type === 'post-test') {
-            correctCode = 'COM2025'; // 更新為 Compustat 課程代碼
+            correctCode = 'COMP2025'; // 更新為 Compustat 課程代碼
             targetPage = 'post-test-page';
         } else if (type === 'admin') {
             correctCode = 'admin123';
@@ -837,6 +842,4 @@
 </script>
 </body>
 </html>
-
-
 
