@@ -181,7 +181,7 @@
                 <form id="satisfaction-form" class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別 <span class="text-red-500">*</span></label>
                             <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>男</option>
@@ -189,7 +189,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別 <span class="text-red-500">*</span></label>
                             <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>大學部</option>
@@ -201,7 +201,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位 <span class="text-red-500">*</span></label>
                             <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>人社院</option>
@@ -215,7 +215,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位 <span class="text-red-500">*</span></label>
                             <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                         </div>
                     </div>
@@ -599,7 +599,7 @@
             gender: document.getElementById('gender').value,
             status: document.getElementById('status').value,
             college: document.getElementById('college').value,
-            department: document.getElementById('department').value,
+            department: document.getElementById('department').value.trim(),
             motivation: motivation,
             satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
             satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
@@ -607,6 +607,11 @@
             futureTopics: document.getElementById('future-topics').value,
             userEmail: document.getElementById('user-email').value,
         };
+        
+        if (!satisfactionData.gender || !satisfactionData.status || !satisfactionData.college || !satisfactionData.department) {
+            showMessage('錯誤', '請完成「第二部分：滿意度調查」中所有標示 * 的必填欄位。', 'error');
+            return;
+        }
         
         if (!satisfactionData.satisfaction1 || !satisfactionData.satisfaction2) {
             showMessage('錯誤', '請完成滿意度調查的第一、二題後再提交。', 'error');
@@ -809,7 +814,7 @@
         let correctCode, targetPage;
 
         if (type === 'post-test') {
-            correctCode = 'COM2025'; // 更新為 Compustat 課程代碼
+            correctCode = 'COMP2025'; // 更新為 Compustat 課程代碼
             targetPage = 'post-test-page';
         } else if (type === 'admin') {
             correctCode = 'admin123';
@@ -842,5 +847,4 @@
 </script>
 </body>
 </html>
-
 
