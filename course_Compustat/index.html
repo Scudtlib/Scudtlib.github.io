@@ -221,7 +221,7 @@
                     </div>
 
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">請問您參加本次課程的動機為何？ (可複選)</label>
+                        <label class="block text-gray-700 font-bold mb-2">5. 請問您參加本次課程的動機為何？ (可複選) <span class="text-red-500">*</span></label>
                         <div id="motivation-checkboxes" class="space-y-2 mt-2">
                             <label class="flex items-center"><input type="checkbox" name="motivation" value="提升論文寫作與研究能力" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">提升論文寫作與研究能力</span></label>
                             <label class="flex items-center"><input type="checkbox" name="motivation" value="增進個人專業知能" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"><span class="ml-2 text-gray-700">增進個人專業知能</span></label>
@@ -233,7 +233,7 @@
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">1. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
+                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -247,7 +247,7 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">2. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
+                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -261,16 +261,16 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">3. 對於本次課程，您有任何建議或想分享的心得嗎?</label>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">8. 對於本次課程，您有任何建議或想分享的心得嗎?</label>
                         <textarea id="feedback" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
                     </div>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">4. 您下次希望參加的課程內容為何?</label>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">9. 您下次希望參加的課程內容為何?</label>
                         <textarea id="future-topics" rows="3" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700"></textarea>
                     </div>
                     <div>
                          <div class="bg-green-50 p-4 rounded-lg">
-                            <label class="block text-gray-700 font-bold mb-2">5. 成為圖書館之友，掌握第一手活動訊息！</label>
+                            <label class="block text-gray-700 font-bold mb-2">10. 成為圖書館之友，掌握第一手活動訊息！</label>
                             <p class="text-gray-600 text-sm mb-3">若您願意收到圖書館未來舉辦的各類課程、講座與活動通知，歡迎留下您常用的 Email，讓我們將最新資訊直送給您。</p>
                             <input type="email" id="user-email" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="請在此輸入您的 Email">
                         </div>
@@ -593,14 +593,14 @@
         }
         
         const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
-        const motivation = Array.from(motivationCheckboxes).map(cb => cb.value).join(', ');
+        const motivation = Array.from(motivationCheckboxes).map(cb => cb.value);
 
         const satisfactionData = {
             gender: document.getElementById('gender').value,
             status: document.getElementById('status').value,
             college: document.getElementById('college').value,
             department: document.getElementById('department').value.trim(),
-            motivation: motivation,
+            motivation: motivation.join(', '),
             satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
             satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
             feedback: document.getElementById('feedback').value,
@@ -613,8 +613,13 @@
             return;
         }
         
+        if (motivation.length === 0) {
+            showMessage('錯誤', '請至少選擇一項「參加動機」。', 'error');
+            return;
+        }
+        
         if (!satisfactionData.satisfaction1 || !satisfactionData.satisfaction2) {
-            showMessage('錯誤', '請完成滿意度調查的第一、二題後再提交。', 'error');
+            showMessage('錯誤', '請完成滿意度調查的必填項目後再提交。', 'error');
             return;
         }
 
@@ -814,7 +819,7 @@
         let correctCode, targetPage;
 
         if (type === 'post-test') {
-            correctCode = 'COMP2025'; // 更新為 Compustat 課程代碼
+            correctCode = 'COM2025'; // 更新為 Compustat 課程代碼
             targetPage = 'post-test-page';
         } else if (type === 'admin') {
             correctCode = 'admin123';
