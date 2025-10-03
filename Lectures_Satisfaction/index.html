@@ -86,7 +86,7 @@
                     <h2 class="text-xl font-bold text-gray-800 border-b pb-2">第一部分：基本資料</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別 <span class="text-red-500">*</span></label>
                             <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>男</option>
@@ -94,7 +94,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別 <span class="text-red-500">*</span></label>
                             <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>大學部</option>
@@ -106,7 +106,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位 <span class="text-red-500">*</span></label>
                             <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>人社院</option>
@@ -120,7 +120,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位 <span class="text-red-500">*</span></label>
                             <input type="text" id="department" placeholder="例如：企管系、資訊處" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                     <!-- 滿意度調查 -->
                     <h2 class="text-xl font-bold text-gray-800 mt-12 mb-4 border-b pb-2">第二部分：問卷內容</h2>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-3">5. 請問您參加本次課程的動機為何？ (可複選)</label>
+                        <label class="block text-gray-700 font-bold mb-3">5. 請問您參加本次課程的動機為何？ (可複選) <span class="text-red-500">*</span></label>
                         <div id="motivation-section" class="space-y-2">
                             <label class="flex items-center"><input type="checkbox" name="motivation" value="提升論文寫作與研究能力" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><span class="ml-2 text-gray-700">提升論文寫作與研究能力</span></label>
                             <label class="flex items-center"><input type="checkbox" name="motivation" value="增進個人專業知能" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><span class="ml-2 text-gray-700">增進個人專業知能</span></label>
@@ -144,7 +144,7 @@
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600 pt-2">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600 pt-2">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -336,7 +336,41 @@
             return;
         }
 
-        // 檢查必填的滿意度問題
+        // 檢查基本資料 (問題 1-4)
+        const gender = document.getElementById('gender').value;
+        const status = document.getElementById('status').value;
+        const college = document.getElementById('college').value;
+        const department = document.getElementById('department').value.trim();
+
+        if (!gender) {
+            showMessage('提醒', '請選擇您的生理性別 (問題1)。', 'error');
+            return;
+        }
+        if (!status) {
+            showMessage('提醒', '請選擇您的身分別 (問題2)。', 'error');
+            return;
+        }
+        if (!college) {
+            showMessage('提醒', '請選擇您的學院/單位 (問題3)。', 'error');
+            return;
+        }
+        if (!department) {
+            showMessage('提醒', '請填寫您的學系/單位 (問題4)。', 'error');
+            return;
+        }
+        
+        // 檢查動機 (問題 5)
+        const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
+        const otherMotivationChecked = document.getElementById('motivation-other-checkbox').checked;
+        const otherMotivationText = document.getElementById('motivation-other-text').value.trim();
+
+        if (motivationCheckboxes.length === 0 && (!otherMotivationChecked || !otherMotivationText)) {
+            showMessage('提醒', '請至少選擇一項參加動機 (問題5)。', 'error');
+            return;
+        }
+
+
+        // 檢查必填的滿意度問題 (問題 6-7)
         const satisfaction1 = document.querySelector('input[name="q1-satisfaction"]:checked');
         const satisfaction2 = document.querySelector('input[name="q2-satisfaction"]:checked');
 
@@ -346,8 +380,7 @@
         }
 
         // 獲取動機 (複選)
-        const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
-        let motivations = Array.from(motivationCheckboxes).map(cb => cb.value);
+        const motivations = Array.from(motivationCheckboxes).map(cb => cb.value);
         const otherCheckbox = document.getElementById('motivation-other-checkbox');
         const otherText = document.getElementById('motivation-other-text');
         if (otherCheckbox.checked && otherText.value.trim()) {
@@ -356,10 +389,10 @@
 
         const surveyData = {
             userId: userId,
-            gender: document.getElementById('gender').value,
-            status: document.getElementById('status').value,
-            college: document.getElementById('college').value,
-            department: document.getElementById('department').value,
+            gender: gender,
+            status: status,
+            college: college,
+            department: department,
             motivation: motivations,
             satisfaction1: satisfaction1.value,
             satisfaction2: satisfaction2.value,
@@ -549,5 +582,4 @@
 </script>
 </body>
 </html>
-
 
