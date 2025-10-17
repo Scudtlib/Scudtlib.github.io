@@ -169,16 +169,16 @@
                 <form id="satisfaction-form" class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
-                            <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別 <span class="text-red-500">*</span></label>
+                            <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" required>
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>男</option>
                                 <option>女</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
-                            <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別 <span class="text-red-500">*</span></label>
+                            <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" required>
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>大學部</option>
                                 <option>碩士生</option>
@@ -189,8 +189,8 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
-                            <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位 <span class="text-red-500">*</span></label>
+                            <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" required>
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>人社院</option>
                                 <option>外國語文學院</option>
@@ -203,66 +203,65 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位</label>
-                            <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">4. 學系/單位 <span class="text-red-500">*</span></label>
+                            <input type="text" id="department" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700" required>
                         </div>
                     </div>
-
-                    <!-- 新增的動機問題 -->
-                    <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">5. 請問您參加本次課程的動機為何？ (可複選)</label>
-                        <div class="space-y-2 mt-2">
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <label class="block text-gray-700 font-bold mb-2">5. 請問您參加本次課程的動機為何？ (可複選) <span class="text-red-500">*</span></label>
+                        <div id="motivation-checkboxes" class="space-y-2 mt-2">
                             <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="提升論文寫作與研究能力" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <input type="checkbox" name="motivation" value="提升論文寫作與研究能力" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">提升論文寫作與研究能力</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="增進個人專業知能" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <input type="checkbox" name="motivation" value="增進個人專業知能" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">增進個人專業知能</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="對目前/未來工作有助益" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <input type="checkbox" name="motivation" value="對目前/未來工作有助益" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">對目前/未來工作有助益</span>
                             </label>
                              <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="老師推薦/課程要求" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <input type="checkbox" name="motivation" value="老師推薦/課程要求" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">老師推薦/課程要求</span>
                             </label>
                             <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="對主題感興趣" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <input type="checkbox" name="motivation" value="對主題感興趣" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">對主題感興趣</span>
                             </label>
-                             <label class="flex items-center">
-                                <input type="checkbox" name="motivation" value="其他" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="motivation" value="其他" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                                 <span class="ml-2 text-gray-700">其他</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <label><input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 5</span></label>
-                                <label><input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 4</span></label>
-                                <label><input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 3</span></label>
-                                <label><input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 2</span></label>
-                                <label><input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 1</span></label>
+                                <input type="radio" name="q1-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500" required>
+                                <input type="radio" name="q1-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q1-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q1-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q1-satisfaction" value="1" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
                             </div>
                             <span>非常不同意</span>
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
-                                <label><input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 5</span></label>
-                                <label><input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 4</span></label>
-                                <label><input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 3</span></label>
-                                <label><input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 2</span></label>
-                                <label><input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500"><span class="sm:hidden"> 1</span></label>
+                                <input type="radio" name="q2-satisfaction" value="5" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500" required>
+                                <input type="radio" name="q2-satisfaction" value="4" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q2-satisfaction" value="3" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q2-satisfaction" value="2" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
+                                <input type="radio" name="q2-satisfaction" value="1" class="form-radio h-5 w-5 text-green-600 focus:ring-green-500">
                             </div>
                             <span>非常不同意</span>
                         </div>
@@ -587,34 +586,50 @@
             return;
         }
 
-        const form = document.getElementById('post-test-form');
+        const postTestForm = document.getElementById('post-test-form');
         const ratings = {};
-        let allAnswered = true;
+        let allAssessmentsAnswered = true;
         for (let i = 0; i < assessmentItems.length; i++) {
-            const selected = form.querySelector(`input[name="assessment-${i}"]:checked`);
+            const selected = postTestForm.querySelector(`input[name="assessment-${i}"]:checked`);
             if (selected) {
                 ratings[`q${i+1}`] = selected.value;
             } else {
-                allAnswered = false;
+                allAssessmentsAnswered = false;
                 break;
             }
         }
 
-        if (!allAnswered) {
-            showMessage('錯誤', '請完成所有自我評估項目後再提交。', 'error');
+        if (!allAssessmentsAnswered) {
+            showMessage('錯誤', '請完成所有「第一部分：課後自我評估」的項目後再提交。', 'error');
             return;
         }
         
-        // 獲取動機 (複選)
+        // 驗證滿意度調查的必填欄位
+        const satisfactionForm = document.getElementById('satisfaction-form');
+        const requiredFields = satisfactionForm.querySelectorAll('[required]');
+        for (const field of requiredFields) {
+            if (!field.value) {
+                showMessage('錯誤', '請完成所有標示 * 的滿意度調查問題。', 'error');
+                field.focus();
+                return;
+            }
+        }
+        
+        // 驗證動機複選框
         const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
-        const motivation = Array.from(motivationCheckboxes).map(cb => cb.value);
+        if (motivationCheckboxes.length === 0) {
+            showMessage('錯誤', '請至少選擇一項參加動機。', 'error');
+            document.getElementById('motivation-checkboxes').focus();
+            return;
+        }
+        const motivations = Array.from(motivationCheckboxes).map(cb => cb.value);
 
         const satisfactionData = {
             gender: document.getElementById('gender').value,
             status: document.getElementById('status').value,
             college: document.getElementById('college').value,
             department: document.getElementById('department').value,
-            motivation: motivation, // 新增動機數據
+            motivation: motivations,
             satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
             satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
             feedback: document.getElementById('feedback').value,
@@ -667,7 +682,7 @@
         const isPreTest = collectionName === 'pre-test-submissions';
         const tableBodyId = isPreTest ? 'pre-test-results-body' : 'post-test-results-body';
         const tableBody = document.getElementById(tableBodyId);
-        const colspan = isPreTest ? 8 : 18; 
+        const colspan = isPreTest ? 8 : 18; // 後測表格增加了一欄
         tableBody.innerHTML = `<tr><td colspan="${colspan}" class="text-center p-4">正在載入資料...</td></tr>`;
 
         try {
@@ -695,23 +710,21 @@
                         ${assessmentItems.map((_, i) => `<td class="px-4 py-2 text-center">${data.ratings[`q${i+1}`] || ''}</td>`).join('')}
                     `;
                 } else {
-                    const motivationText = (data.satisfaction.motivation && Array.isArray(data.satisfaction.motivation)) 
-                        ? data.satisfaction.motivation.join(', ') 
-                        : '';
+                     const satisfaction = data.satisfaction || {};
                      row.innerHTML = `
                         <td class="px-4 py-2">${submittedAt}</td>
                         <td class="px-4 py-2">${data.userId || ''}</td>
                         ${assessmentItems.map((_, i) => `<td class="px-4 py-2 text-center">${data.ratings[`q${i+1}`] || ''}</td>`).join('')}
-                        <td class="px-4 py-2">${data.satisfaction.gender || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.status || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.college || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.department || ''}</td>
-                        <td class="px-4 py-2">${motivationText}</td>
-                        <td class="px-4 py-2 text-center">${data.satisfaction.satisfaction1 || ''}</td>
-                        <td class="px-4 py-2 text-center">${data.satisfaction.satisfaction2 || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.feedback || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.futureTopics || ''}</td>
-                        <td class="px-4 py-2">${data.satisfaction.userEmail || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.gender || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.status || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.college || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.department || ''}</td>
+                        <td class="px-4 py-2">${(satisfaction.motivation || []).join(', ')}</td>
+                        <td class="px-4 py-2 text-center">${satisfaction.satisfaction1 || ''}</td>
+                        <td class="px-4 py-2 text-center">${satisfaction.satisfaction2 || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.feedback || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.futureTopics || ''}</td>
+                        <td class="px-4 py-2">${satisfaction.userEmail || ''}</td>
                     `;
                 }
                 tableBody.appendChild(row);
@@ -854,3 +867,5 @@
 </script>
 </body>
 </html>
+
+
