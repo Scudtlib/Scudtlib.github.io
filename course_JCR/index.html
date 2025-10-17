@@ -171,7 +171,7 @@
                 <form id="satisfaction-form" class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">1. 生理性別 <span class="text-red-500">*</span></label>
                             <select id="gender" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>男</option>
@@ -179,7 +179,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">2. 身分別 <span class="text-red-500">*</span></label>
                             <select id="status" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>大學部</option>
@@ -191,7 +191,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位</label>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">3. 學院/單位 <span class="text-red-500">*</span></label>
                             <select id="college" class="shadow border rounded-lg w-full py-2 px-3 text-gray-700">
                                 <option value="" disabled selected>請選擇...</option>
                                 <option>人社院</option>
@@ -212,7 +212,7 @@
                     
                     <!-- 新增的動機問題 -->
                     <div class="pt-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">5. 請問您參加本次課程的動機為何？ (可複選)</label>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">5. 請問您參加本次課程的動機為何？ (可複選) <span class="text-red-500">*</span></label>
                         <div id="motivation-checkboxes" class="mt-2 space-y-2">
                             <div class="flex items-center">
                                 <input id="motive1" name="motivation" type="checkbox" value="提升論文寫作與研究能力" class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
@@ -242,7 +242,7 @@
                     </div>
                     
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助</label>
+                        <label class="block text-gray-700 font-bold mb-2">6. 今日的課程講授，對於提昇我自己的研究／搜尋技能很有幫助 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                             <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -256,7 +256,7 @@
                         </div>
                     </div>
                      <div class="bg-gray-50 p-4 rounded-lg">
-                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容</label>
+                        <label class="block text-gray-700 font-bold mb-2">7. 主講人能夠正確並清楚地表達講授的內容 <span class="text-red-500">*</span></label>
                         <div class="flex flex-wrap justify-around items-center text-sm text-gray-600">
                            <span>非常同意</span>
                             <div class="flex space-x-2 sm:space-x-4">
@@ -591,33 +591,55 @@
 
         const form = document.getElementById('post-test-form');
         const ratings = {};
-        let allAnswered = true;
+        let allSelfAssessmentAnswered = true;
         for (let i = 0; i < assessmentItems.length; i++) {
             const selected = form.querySelector(`input[name="assessment-${i}"]:checked`);
             if (selected) {
                 ratings[`q${i+1}`] = selected.value;
             } else {
-                allAnswered = false;
+                allSelfAssessmentAnswered = false;
                 break;
             }
         }
 
-        if (!allAnswered) {
-            showMessage('錯誤', '請完成所有自我評估項目後再提交。', 'error');
+        if (!allSelfAssessmentAnswered) {
+            showMessage('錯誤', '請完成所有「第一部分：課後自我評估」的項目後再提交。', 'error');
             return;
         }
         
+        const gender = document.getElementById('gender').value;
+        const status = document.getElementById('status').value;
+        const college = document.getElementById('college').value;
+
+        if (!gender || !status || !college) {
+            showMessage('錯誤', '請完成所有必填的個人資料欄位 (生理性別、身分別、學院/單位)。', 'error');
+            return;
+        }
+
         const motivationCheckboxes = document.querySelectorAll('input[name="motivation"]:checked');
         const motivation = Array.from(motivationCheckboxes).map(cb => cb.value);
 
+        if (motivation.length === 0) {
+            showMessage('錯誤', '請至少選擇一個「參加課程的動機」。', 'error');
+            return;
+        }
+
+        const satisfaction1 = document.querySelector('input[name="q1-satisfaction"]:checked');
+        const satisfaction2 = document.querySelector('input[name="q2-satisfaction"]:checked');
+
+        if (!satisfaction1 || !satisfaction2) {
+            showMessage('錯誤', '請完成所有的滿意度調查題目。', 'error');
+            return;
+        }
+
         const satisfactionData = {
-            gender: document.getElementById('gender').value,
-            status: document.getElementById('status').value,
-            college: document.getElementById('college').value,
+            gender: gender,
+            status: status,
+            college: college,
             department: document.getElementById('department').value,
             motivation: motivation,
-            satisfaction1: document.querySelector('input[name="q1-satisfaction"]:checked')?.value || '',
-            satisfaction2: document.querySelector('input[name="q2-satisfaction"]:checked')?.value || '',
+            satisfaction1: satisfaction1.value,
+            satisfaction2: satisfaction2.value,
             feedback: document.getElementById('feedback').value,
             futureTopics: document.getElementById('future-topics').value,
             userEmail: document.getElementById('user-email').value,
