@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WestlawNext 利用教育課程自我評估</title>
+    <title>Westlaw Classic 利用教育課程自我評估</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -76,7 +76,7 @@
                         </g>
                     </svg>
                 </div>
-                <h1 class="text-3xl sm:text-4xl font-bold text-indigo-600 mb-4">WestlawNext 利用教育課程</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-indigo-600 mb-4">Westlaw Classic 利用教育課程</h1>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">為了解您在課程前後的學習成效，請依據您的參與階段，選擇下面的自我評估。您的填答將做為我們未來改善課程的依據。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -116,7 +116,7 @@
                 <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">課前自我評估</h1>
                 <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
                     <p>各位師長、同學大家好，</p>
-                    <p>歡迎您參與圖書館舉辦之「WestlawNext」利用教育課程。這份評估主要目的是想要瞭解大家在這門課程前對此資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                    <p>歡迎您參與圖書館舉辦之「Westlaw Classic」利用教育課程。這份評估主要目的是想要瞭解大家在這門課程前對此資料庫的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
                     <div class="text-right pt-2">
                         <p>圖書館 敬上</p>
                     </div>
@@ -147,7 +147,7 @@
                 <h1 class="text-2xl sm:text-3xl font-bold text-green-600 mb-4">課後自我評估 & 滿意度調查</h1>
                 <div class="bg-green-50 border-l-4 border-green-400 text-green-700 p-4 rounded-md mb-6 text-sm sm:text-base space-y-3">
                      <p>各位師長、同學大家好，</p>
-                     <p>感謝您的參與。這份評估主要目的是想要瞭解大家在這門課程後對「WestlawNext」的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
+                     <p>感謝您的參與。這份評估主要目的是想要瞭解大家在這門課程後對「Westlaw Classic」的了解程度。您的填答結果僅做為我們改善課程製作及內容深度調整的依據，我們不會將個人資料與填答內容外洩，請放心填寫。</p>
                      <div class="text-right pt-2">
                          <p>圖書館 敬上</p>
                      </div>
@@ -296,7 +296,7 @@
         <div id="admin-page" class="hidden fade-in">
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
                 <div class="flex justify-between items-center mb-6">
-                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">管理員後台 - WestlawNext 利用教育課程評估結果</h1>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">管理員後台 - Westlaw Classic 利用教育課程評估結果</h1>
                     <button onclick="showPage('home-page')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-300">返回首頁</button>
                 </div>
                 
@@ -425,8 +425,8 @@
         messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
         appId: "YOUR_APP_ID"
     };
-    // 為 WestlawNext 課程建立一個新的獨立 App ID
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'westlaw-next-quiz-2025';
+    // 為 Westlaw Classic 課程建立一個新的獨立 App ID
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'westlaw-classic-quiz-2025';
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     // 初始化 Firebase
@@ -448,14 +448,14 @@
         document.body.innerHTML = `<div class="p-8 text-center text-red-600 bg-red-100">Firebase 初始化失敗，應用程式無法載入。請檢查控制台以獲取更多資訊。</div>`;
     }
 
-    // --- 評估項目資料庫 (WestlawNext) ---
+    // --- 評估項目資料庫 (Westlaw Classic) ---
     const assessmentItems = [
-        "我能夠使用特定的 Citation 號碼，精準地在 WestlawNext 中找到所需的判決書。",
-        "我能夠用案件的雙方當事人名稱，在 WestlawNext 中有效地查詢到相關的法律案件。",
-        "我能夠在 WestlawNext 中快速找到並理解特定英美法法條的定義。",
-        "我能夠清楚解釋 WestlawNext 中 KeyCite 功能中紅旗、黃旗、藍旗所代表的法律意義，並運用於判斷案例的效力。",
-        "當我需要進行特定條件的檢索時，我知道在 WestlawNext 中如何關閉自動篩選功能，以獲得更全面的檢索結果。",
-        "假設當我找到一個重要的最高法院判例後，我能夠在 WestlawNext 中查閱該案件的完整訴訟歷史，包括其在上訴過程中的所有重要裁決和法律程序。"
+        "我能夠使用特定的 Citation 號碼，精準地在 Westlaw Classic 中找到所需的判決書。",
+        "我能夠用案件的雙方當事人名稱，在 Westlaw Classic 中有效地查詢到相關的法律案件。",
+        "我能夠在 Westlaw Classic 中快速找到並理解特定英美法法條的定義。",
+        "我能夠清楚解釋 Westlaw Classic 中 KeyCite 功能中紅旗、黃旗、藍旗所代表的法律意義，並運用於判斷案例的效力。",
+        "當我需要進行特定條件的檢索時，我知道在 Westlaw Classic 中如何關閉自動篩選功能，以獲得更全面的檢索結果。",
+        "假設當我找到一個重要的最高法院判例後，我能夠在 Westlaw Classic 中查閱該案件的完整訴訟歷史，包括其在上訴過程中的所有重要裁決和法律程序。"
     ];
 
     const likertScale = {
@@ -760,7 +760,7 @@
         const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
         link.setAttribute('href', url);
-        const fileName = tableId === 'pre-test-table' ? 'westlaw-next-pre-test-results.csv' : 'westlaw-next-post-test-results.csv';
+        const fileName = tableId === 'pre-test-table' ? 'westlaw-classic-pre-test-results.csv' : 'westlaw-classic-post-test-results.csv';
         link.setAttribute('download', fileName);
         link.style.visibility = 'hidden';
         document.body.appendChild(link);
@@ -833,7 +833,7 @@
         let correctCode, targetPage;
 
         if (type === 'post-test') {
-            correctCode = 'WL2025';
+            correctCode = 'WLC2025'; // Updated Code
             targetPage = 'post-test-page';
         } else if (type === 'admin') {
             correctCode = 'admin123';
@@ -876,6 +876,3 @@
 </script>
 </body>
 </html>
-
-
-
